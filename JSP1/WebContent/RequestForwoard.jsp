@@ -25,32 +25,23 @@
     <![endif]-->
 </head>
 <body>
-	 <div class="container">
-	<div class="row">
-	<div class="col-sm-12 text-center" >
-	<div class="col-sm-3"></div>
-	
-	<div class="col-sm-6">
-    <h2>로그인 페이지</h2>
-	<form action="RequestLoginProc.jsp" method="get">
-		<table class="table table-boardered">
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" class="form-control" name="id"></td>		
-			</tr>
-			<tr>
-				<th>패스워드</th>
-				<td><input type="password" class="form-control" name="pass"></td>		
-			</tr>
-			<tr>
-				<td colspan="2"><button class="btn btn-primary">전송</button></td>
-			</tr>
-		</table>
-	</form>
-	</div>
-	
-	</div>
-	</div>
-</div>
+
+<!--  RequestLogin 에서 넘어온 아이디와 패스워드를 읽어드림  -->
+<%
+	//사용자의 정보가 저장되어 있는 객체 request 의 getParameter() 사용자의 정보를 추출
+	String id= request.getParameter("id"); //사용자의 id 값을 읽어드려서 변수 id 에 저장하시오.
+	String pass=request.getParameter("pass");
+%>
+
+
+ <h2>
+ RequestForward 페이지 입니다. <br>
+ 당신의 아이디는  <%= id  %> 이고 패스워드는  <%= pass %> 입니다.
+ </h2>
+  
+  
+ 
+
 </body>
 </html>
+
