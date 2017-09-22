@@ -38,7 +38,7 @@
 
 
 //post 방식으로 데이터가 넘어올때 한글이 깨질수 있기에
-	request.setCharacterEncoding("EUC-KR");
+	request.setCharacterEncoding("UTF-8");
 
 //각종 사용자로부터 넘어오 데이터를 저장해 줌
 	String id=request.getParameter("id");
@@ -54,7 +54,70 @@
 	String age=request.getParameter("age");
 	String info=request.getParameter("info");
 
+	if(!pass1.equals(pass2)){
+		
 %>
+	<script type="text/javascript">
+		alert("비밀번호가틀립니다.")//경고창
+		history.go(-1);//이전 페이지로 이동
+	</script>
+<% } %>	
+
+
+
+		<table class="table table-boardered">
+			<tr>
+				<th>아이디</th>
+				<td><%= id %></td>		
+			</tr>
+			<tr>
+				<th>패스워드</th>
+				<td><%= pass1 %></td>		
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><%= email %></td>		
+			</tr>
+			
+			<tr>
+				<th>전화번호</th>
+				<td><%= tel %></td>		
+			</tr>
+			
+			<tr>
+				<th>당신의 관심분야</th>
+				<td>
+					<%
+						for(int i=0; i<hobby.length; i++){
+							out.write(hobby[i] + " ");	
+						}
+					%>
+				</td>		
+			</tr>
+			
+			<tr>
+				<th>당신의 직업은</th>
+				<td>
+				 <%= job %>
+				</td>		
+			</tr>
+			
+						
+			<tr>
+				<th>당신의 연력은</th>
+				<td>
+				<%= age %>
+				</td>		
+			</tr>
+			
+			<tr>
+				<th>하고 싶은 말</th>
+				<td>
+				 <%= info %>
+				</td>		
+			</tr>
+		</table>
+
 
 
 			</div>

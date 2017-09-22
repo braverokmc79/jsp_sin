@@ -36,11 +36,11 @@
 		<table class="table table-boardered">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" class="form-control" name="id"></td>		
+				<td><input type="text" class="form-control" name="id" placeholder="id를 넣으세요"></td>		
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><input type="password" class="form-control" name="pass1"></td>		
+				<td><input type="password" class="form-control" name="pass1" placeholder="비밀번호는 영문만 넣어주세요"></td>		
 			</tr>
 			
 			<tr>
@@ -90,7 +90,6 @@
 				<input type="radio"  name="age" value="40">40대 &nbsp;&nbsp;
 				</td>		
 			</tr>
-			
 			
 			<tr>
 				<th>하고 싶은 말</th>
