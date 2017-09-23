@@ -21,7 +21,7 @@
          <li><a href="#contact">침낭</a></li>
          <li><a href="#contact">테이블</a></li>
          <li><a href="#contact">화롯대</a></li>
-         <li><a href="#contact"><%= request.getParameter("id") %></a></li>
+         <li><a href="#contact"><%= request.getParameter("id") %> ${param.id }</a></li>
        </ul>
      </div><!-- /.nav-collapse -->
    </div><!-- /.container -->
