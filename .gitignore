@@ -9,6 +9,8 @@
 
 /.class
 
+ojdbc7.jar
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
