@@ -9,7 +9,6 @@
 
 /.class
 
-ojdbc7.jar
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -37,3 +36,4 @@ nbdist/
 .nb-gradle/
 
 .recommenders/*
+DataBase/WebContent/WEB-INF/lib/ojdbc7.jar
