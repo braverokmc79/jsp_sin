@@ -36,6 +36,12 @@ footer {
 	
 	height=60px;
 }
+#centerImg{
+	
+	max-width:100%;
+	width:100%;
+}
+
 
 /*
  * Off Canvas
