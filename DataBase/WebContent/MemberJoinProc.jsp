@@ -44,9 +44,11 @@
 					MemberDAO dao=new MemberDAO();
 					dao.insertMember(mbean);
 													
+					
+					//회원 가입이 되었다면 회원 정보를 보여주는 페이지로 이동시켜
+					response.sendRedirect("MemberList.jsp");
+		
 		%>
-
-			오라클에  완료 ~ 
 
 				</div>
 			</div>
