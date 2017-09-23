@@ -37,3 +37,6 @@ nbdist/
 
 .recommenders/*
 DataBase/WebContent/WEB-INF/lib/ojdbc7.jar
+
+
+/Servers
