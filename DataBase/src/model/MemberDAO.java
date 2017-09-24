@@ -67,6 +67,37 @@ public class MemberDAO {
 	public Vector<MemberBean> allSelectMember(){
 		Vector<MemberBean> v =new Vector<>();
 		
+		
+		//무조건 데이터 베이스는 예외처리를 반드시 해야 합니다.
+		try{
+			//커넥션 연결
+			getCon();
+			//쿼리 준비
+			String sql =" select * from member ";
+			//쿼리를 실행시켜주는 객체 서언
+			pstmt=con.prepareStatement(sql);
+			//쿼리를 실행 시간 결과를 리턴해서 받아줌(오라클 데이블의 검색된 결과를 자바객체에 저장)
+			rs=pstmt.executeQuery();
+			//반복문을 사용해서 rs에 저장된 데이터를 추출해놓여야함
+			while(rs.next()){//저장된 데이터 만큼까지 반복문을 돌리겠다라는 뜻입니다.
+			    MemberBean bean =new MemberBean();//컬럼으로 나뉘어진 데이터를 빈클래스에 저장
+			    bean.setId(rs.getString("id"));
+			    bean.setAge(rs.getString("age"));
+			    bean.setEmail(rs.getString("email"));
+			    bean.setHobby(rs.getString("hobby"));
+				bean.setTel(rs.getString("tel"));
+				bean.setJob(rs.getString("job"));
+				bean.setPass1(rs.getString("pass1"));
+			    bean.setInfo(rs.getString("info"));
+				//패키징된 memberbean 클래스를 벡터에 저장
+			    v.add(bean); // 0번지부터 순서대로 데이터가 저장
+			}
+			//자원 반납
+			con.close();
+		}catch(Exception e){
+			
+		}	
+		//다 저장된 벡터를 리턴
 		return v;
 	}
 	
