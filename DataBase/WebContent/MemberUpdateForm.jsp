@@ -47,7 +47,7 @@
 					  <tr>
 						<td>전화</td>
 						<td>
-						<input type="tel" value="<%= mbean.getTel() %>" name="email" class="form-control">
+						<input type="tel" value="<%= mbean.getTel() %>" name="tel" class="form-control">
 						</td>
 					  </tr>
 					  
