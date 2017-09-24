@@ -3,16 +3,24 @@
 <!DOCTYPE html>
 <html>
   <head>	
-   <jsp:include page="Header.jsp" />
+   <jsp:include page="Header2.jsp" />
   </head>
   <body>
+  	
+<%
+	//Center 값을 변경해주기위해서 request 객체를 Center 값을 받아옴
+	String center =request.getParameter("center");
+
+	//처음 SessionMain.jsp 를 실행하면 null값이 실행되기에 null 처를 해줌
+	if(center ==null){
+		center ="Center.jsp";
+	}
+	
+%>  	
   	
   	<jsp:include page="Top.jsp">
   			<jsp:param value="aaa" name="id"  />
   	</jsp:include>
-  	<%--
-  	 <jsp:include page="Top.jsp"/>
-  	 --%>
 
   	 
     <div class="container">
@@ -23,7 +31,7 @@
         
         
 		<!--  Center -->
-		<jsp:include page="Center.jsp"/>
+		<jsp:include page="<%=center %>" />
 		
 		
       </div><!--/row-->
