@@ -17,7 +17,6 @@
 
 
 
-
 	<!--  1.데이터 베이스에서 모든회원의 정보를 가져옴. 2. table 태그를 이용하여 화면에 정보를 출력 -->
 	<%
 		 MemberDAO mdao =new MemberDAO();

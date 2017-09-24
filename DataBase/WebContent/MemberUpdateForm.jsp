@@ -27,7 +27,10 @@
 		<div class="col-sm-12">
 			<div class="col-sm-2"></div>
 				<div class="col-sm-9">
-					<h2 class="text-center">회원 정보 보기</h2>
+					<h2 class="text-center">회원 정보 수정하기</h2>
+					
+					<form action="MemberUpdateProc.jsp" method="post">
+					
 					<table class="table table-striped">
 					  <tr>
 						<td>아이디</td>
@@ -36,46 +39,38 @@
 					  
 					  <tr>
 						<td>이메일</td>
-						<td><%= mbean.getEmail() %></td>
+						<td>
+						<input type="email" value="<%= mbean.getEmail() %>" name="email" class="form-control">
+						</td>
 					  </tr>
 					  
 					  <tr>
 						<td>전화</td>
-						<td><%= mbean.getTel() %></td>
+						<td>
+						<input type="tel" value="<%= mbean.getTel() %>" name="email" class="form-control">
+						</td>
 					  </tr>
 					  
 					  <tr>
-						<td>취미</td>
-						<td><%= mbean.getHobby() %></td>
-					  </tr>
-					  
-					  <tr>
-						<td>직업</td>
-						<td><%= mbean.getJob() %></td>
-					  </tr>
-					  
-					 <tr>
-						<td>나이</td>
-						<td><%= mbean.getAge() %></td>
-					  </tr>
-					  
-					  <tr>
-						<td>정보</td>
-						<td><%= mbean.getInfo() %></td>
+						<td>패스워드</td>
+						<td>
+						<input type="password" value="<%= mbean.getPass1() %>" name="pass1" class="form-control">
+						</td>
 					  </tr>
 					  
 					<tr>
-						 <td class="text-center" colspan="2">
-<button onclick="location.href='MemberUpdateForm.jsp?id=<%= mbean.getId() %>'" class="btn btn-primary">회원수정</button>
-<button onclick="location.href='MemberDeleteForm.jsp?id=<%= mbean.getId() %>'" class="btn btn-danger">회원삭제</button>
-<button onclick="location.href='MemberList.jsp'" class="btn btn-warning">목록보기</button>
-<button onclick="location.href='MemberJoin.jsp'" class="btn btn-success">회원가입</button>
-						 
+						 <td colspan="2" class="text-center">
+						 <input type="submit" value="회원 수정하기" class="btn btn-success">
+ <button type="button"  class="btn btn-warning" onclick="location.href='MemberList.jsp'">회원 전체 보기</button>
+						
+						
 						 </td>	
-					</tr>	
-				
-					  
+					</tr>
+						  
 					</table>
+				
+				</form>	
+					
 				</div>
 		</div> <!-- col-sm-12 -->
 	</div><!-- row -->
