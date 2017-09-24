@@ -51,7 +51,8 @@ public class MemberDAO {
 			//4. 오라클에서 쿼리를 실행하시오
 			pstmt.executeUpdate(); //insert, update, delete 사용하는 메소드
 		}catch(Exception e){
-			
+			e.printStackTrace();
+		}finally{
 			try{
 				//5.자원 반납
 				if(pstmt!=null)pstmt.close();
@@ -92,15 +93,67 @@ public class MemberDAO {
 				//패키징된 memberbean 클래스를 벡터에 저장
 			    v.add(bean); // 0번지부터 순서대로 데이터가 저장
 			}
-			//자원 반납
-			con.close();
-		}catch(Exception e){
 			
-		}	
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				
+				//자원 반납
+				if(rs!=null)rs.close();
+				if(pstmt!=null)rs.close();
+				if(con!=null)con.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		//다 저장된 벡터를 리턴
 		return v;
 	}
 	
+	
+	//한사람의 대한 정보를 리턴하는 메소드 작성
+	public MemberBean oneSelectMember(String id){
+		//한사람에 대한 정보만 리턴하기에 빈클래스 객체 생성
+		MemberBean bean =new MemberBean();
+		
+		try{
+			//커넥션연결
+			getCon();
+			//쿼리 준비
+			String sql="select * from member where id =? ";
+			pstmt = con.prepareStatement(sql);
+			//?에 값을 맵핑
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){//레코드가 있다면
+				bean.setId(rs.getString("id"));
+			    bean.setAge(rs.getString("age"));
+			    bean.setEmail(rs.getString("email"));
+			    bean.setHobby(rs.getString("hobby"));
+				bean.setTel(rs.getString("tel"));
+				bean.setJob(rs.getString("job"));
+				bean.setPass1(rs.getString("pass1"));
+			    bean.setInfo(rs.getString("info"));
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				
+				//자원 반납
+				if(rs!=null)rs.close();
+				if(pstmt!=null)rs.close();
+				if(con!=null)con.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
 	
 	
 }

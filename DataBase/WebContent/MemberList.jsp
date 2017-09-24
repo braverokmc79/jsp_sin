@@ -9,12 +9,10 @@
 <jsp:include page="Header.jsp" />
 </head>
 <body>
-
 <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Macaronics.net</a>
-        </div>
-        
+        </div>     
 </div>
 
 
@@ -47,7 +45,13 @@
 						
 					%>	
 						<tr>
-							<td><%= bean.getId()%></td>
+							<td>
+							
+							<a href="MemberInfo.jsp?id=<%=bean.getId() %>">
+							<%= bean.getId()%>
+							</a>
+							</td>
+							
 							<td><%= bean.getEmail()%></td>
 							<td><%= bean.getTel()%></td>
 							<td><%= bean.getHobby()%></td>
