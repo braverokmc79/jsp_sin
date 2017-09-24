@@ -1,10 +1,13 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 //오라클 데이터 베이스에 연결하고 select, insert, update, delete 작업을 실행해주는 클래스입니다.
 public class MemberDAO {
@@ -20,14 +23,32 @@ public class MemberDAO {
 	
 	//데이터 베이스에 접근할 수 있도록 도와주는 메소드
 	public void getCon(){
+		//커넥션풀을 이용하여 데이터 베이스에 접근
 		try{
-			//1.해당 데이터 베이스를 사용한다고 선언 (클래스를 등록 = 오라클용 사용 )
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//2.해당 데이터 베이스에 접속
-			con=DriverManager.getConnection(url, id, pass);	
+			//외부에서 데이터를 읽어들어야 하기에
+			Context initctx =new InitialContext();
+			//톰켓 서버에 정보를 담아놓은 고으로 이동
+			Context envctx =(Context) initctx.lookup("java:comp/env/");
+			//데이터 소스 객체를 선언
+			DataSource ds =(DataSource) envctx.lookup("jdbc/pool");
+			//데이터 소스를 기준으로 커넥션을 연결해주시오
+			con =ds.getConnection();
+			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+			
+			
+		
+		//		try{
+//			//1.해당 데이터 베이스를 사용한다고 선언 (클래스를 등록 = 오라클용 사용 )
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//			//2.해당 데이터 베이스에 접속
+//			con=DriverManager.getConnection(url, id, pass);	
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
 	}
 	
 	//데이터 베이스에 한사람의 회원 정보를 저장해주는 메소드
