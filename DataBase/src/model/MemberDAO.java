@@ -141,8 +141,7 @@ public class MemberDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			try{
-				
+			try{		
 				//자원 반납
 				if(rs!=null)rs.close();
 				if(pstmt!=null)rs.close();
@@ -154,6 +153,43 @@ public class MemberDAO {
 		}
 		return bean;
 	}
+	
+	
+	//한회원의 패스워드값을 리턴하는 메소드 작성
+	public String getPass(String id){
+		//스트림으로  리턴을 해야하기에 스트림변수 선언
+		String pass="";
+		try{
+			getCon();
+			//쿼리준비
+			String sql="select pass1 from member where id=?";
+			pstmt=con.prepareStatement(sql);
+			//? 에 값을 맵핑
+			pstmt.setString(1, id);
+			//쿼리 실행
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				pass=rs.getString(1); //패스워드값이 저장된 컬럼인덱스
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{		
+				//자원 반납
+				if(rs!=null)rs.close();
+				if(pstmt!=null)rs.close();
+				if(con!=null)con.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		//결과를 리턴
+		return pass;
+	}
+	
+	
 	
 	
 }

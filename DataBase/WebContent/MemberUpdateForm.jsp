@@ -59,11 +59,10 @@
 					  </tr>
 					  
 					<tr>
-						 <td colspan="2" class="text-center">
+						<td colspan="2" class="text-center">
+						 <input type="hidden" name="id" value="<%= mbean.getId() %>">
 						 <input type="submit" value="회원 수정하기" class="btn btn-success">
  <button type="button"  class="btn btn-warning" onclick="location.href='MemberList.jsp'">회원 전체 보기</button>
-						
-						
 						 </td>	
 					</tr>
 						  
