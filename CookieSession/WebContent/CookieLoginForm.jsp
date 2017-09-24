@@ -28,7 +28,7 @@
 
 						<tr>
 							<td colspan="2" class="text-center">
-							<input type="checkbox"	name="save">&nbsp; 아이디 저장	
+							<input type="checkbox"	name="save" value="1">&nbsp; 아이디 저장	
 							</td>
 						</tr>
 
