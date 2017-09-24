@@ -7,6 +7,23 @@
 </head>
 <body>
 
+<%
+	//사용자 컴퓨터의 쿠키 저장소로부터 쿠키값을 읽어드림 - 몇개인지 모르기에 배열을 이용하여 쿠키값을 저장
+	Cookie[] cookies =request.getCookies();
+	String id="";
+	//쿠키값이 없을 수도 있기에 null 처리를 해줍니다.
+	if(cookies !=null){
+		for(int i = 0; i < cookies.length; i++){
+			if(cookies[i].getName().equals("macaronics.net")){
+				id=cookies[i].getValue();
+				break; //우리가 원하는 데이터를 찾았기에 반복문을 빠져 나옴
+			}
+		}
+	}
+
+%>
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-3 col-sm-3"></div>
@@ -18,7 +35,7 @@
 					<table class="table table-striped">
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="id" class="form-control"></td>
+							<td><input type="text" name="id" class="form-control" value="<%=id %>"></td>
 						</tr>
 
 						<tr>
