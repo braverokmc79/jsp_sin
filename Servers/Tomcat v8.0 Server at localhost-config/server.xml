@@ -126,7 +126,7 @@
 
       
       
-      <Context docBase="CookieSession" path="/CookieSession" reloadable="true" source="org.eclipse.jst.jee.server:CookieSession"/><Context docBase="jsp2" path="/jsp2" reloadable="true" source="org.eclipse.jst.jee.server:jsp2"/></Host>
+      <Context docBase="CookieSession" path="/CookieSession" reloadable="true" source="org.eclipse.jst.jee.server:CookieSession"/></Host>
     
     
     </Engine>

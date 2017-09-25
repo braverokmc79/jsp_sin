@@ -25,7 +25,7 @@
   	 
     <div class="container">
 
-      <div class="row row-offcanvas row-offcanvas-right">
+       <div class="row row-offcanvas row-offcanvas-right" >
       	<!-- Left -->
         <jsp:include page="Left.jsp"/>
         
@@ -35,12 +35,13 @@
 		
 		
       </div><!--/row-->
-
-      <!--  Bottom -->
-	 <jsp:include page="Bottom.jsp"/>
+	
+		
 
     </div><!--/.container-->
 
+      <!--  Bottom -->
+	 <jsp:include page="Bottom.jsp"/>
 
 
     <!-- Bootstrap core JavaScript

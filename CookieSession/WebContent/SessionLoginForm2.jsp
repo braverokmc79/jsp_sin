@@ -1,19 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<jsp:include page="Header2.jsp" />
-</head>
-<body>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-3 col-sm-3"></div>
 
 
-			<div class="col-xs-6 col-sm-6">
-				<p>&nbsp;</p><h2 class="text-center">세션 로그인</h2><p>&nbsp;</p>
+       <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"></button>
+          </p>
+          <div class="jumbotron">     
+          	<p>&nbsp;</p><h2 class="text-center">세션 로그인</h2><p>&nbsp;</p>
 				<form action="SessionLoginProc.jsp" method="post">
 					<table class="table table-striped">
 						<tr>
@@ -36,13 +30,8 @@
 
 					</table>
 				</form>
-			</div><!-- col-xs-6 col-sm-6 -->
+          	
+          </div>
+        </div><!--/.col-xs-12.col-sm-9-->
+        
 
-
-		</div>
-		<!-- row -->
-	</div><!-- container -->
-
-
-</body>
-</html>

@@ -5,7 +5,7 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           <div class="jumbotron">     	
-             <p><img src="img/auto.jpg" id="centerImg"></p>
+             <p><img src="img/snowpeak.jpg" id="centerImg" width="700" height="500"></p>
           </div>
         </div><!--/.col-xs-12.col-sm-9-->
         
