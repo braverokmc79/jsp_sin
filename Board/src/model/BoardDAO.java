@@ -75,13 +75,8 @@ public class BoardDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			try{
-				//자원 반납
-				if(pstmt!=null)con.close();
-				if(con!=null)con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+			//자원 반납
+			closed();
 		}
 	}
 	
@@ -121,18 +116,68 @@ public class BoardDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			try{
-				//자원 반납
-				if(rs!=null)con.close();
-				if(pstmt!=null)con.close();
-				if(con!=null)con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+			//자원 반납
+			closed();
 		}
 		return v;
 	}
 	
+	//하나의 게시글을 리넡하는 메소드
+	public BoardBean getOneBoard(int num){
+		//리턴타입 선언
+		BoardBean bean =new BoardBean();
+		getCon();
+		
+		try{
+			
+			//조회수 증가쿼리
+			String readsql ="update board set readcount= readcount+1 where num=?";
+			pstmt =con.prepareStatement(readsql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+			
+			
+			//쿼리준비
+			String sql ="select * from board where num=?";
+			//쿼리실행객체
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			//쿼리 실행후 결과를 리턴
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setNum(rs.getInt("num"));
+				bean.setWriter(rs.getString("WRITER"));
+				bean.setEmail(rs.getString("EMAIL"));
+				bean.setSubject(rs.getString("SUBJECT"));
+				bean.setPassword(rs.getString("PASSWORD"));
+				bean.setReg_date(rs.getDate("REG_DATE").toString());
+				bean.setRef(rs.getInt("ref"));
+				bean.setRe_step(rs.getInt("REF_STEP"));
+				bean.setRe_level(rs.getInt("REF_LEVEL"));
+				bean.setReadcount(rs.getInt("READCOUNT"));
+				bean.setContent(rs.getString("CONTENT"));				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//자원 반납
+			closed();
+		}
+		return bean;
+	}
+	
+	
+	//자원 반납 메소드
+	private void closed(){
+		try{
+			//자원 반납
+			if(rs!=null)con.close();
+			if(pstmt!=null)con.close();
+			if(con!=null)con.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
