@@ -94,7 +94,7 @@ public class BoardDAO {
 		getCon();
 		try{
 			//쿼리 준비
-			String sql ="select * from board order by ref desc, re_step asc";
+			String sql ="select * from board order by ref desc, REF_STEP asc";
 			//쿼리를 실행할객체 선언
 			pstmt =con.prepareStatement(sql);
 			//쿼리실행 후 결과 저장
@@ -110,7 +110,7 @@ public class BoardDAO {
 				bean.setPassword(rs.getString("PASSWORD"));
 				bean.setReg_date(rs.getDate("REG_DATE").toString());
 				bean.setRef(rs.getInt("ref"));
-				bean.setRe_step(rs.getInt("ref_step"));
+				bean.setRe_step(rs.getInt("REF_STEP"));
 				bean.setRe_level(rs.getInt("REF_LEVEL"));
 				bean.setReadcount(rs.getInt("READCOUNT"));
 				bean.setContent(rs.getString("CONTENT"));
