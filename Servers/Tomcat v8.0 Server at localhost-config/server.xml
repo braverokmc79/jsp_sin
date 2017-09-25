@@ -126,7 +126,23 @@
 
       
       
-      <Context docBase="CookieSession" path="/CookieSession" reloadable="true" source="org.eclipse.jst.jee.server:CookieSession"/></Host>
+      <Context docBase="Board" path="/Board" reloadable="true" source="org.eclipse.jst.jee.server:Board">
+          <Resource
+          name="jdbc/pool"
+          auth="Container"
+          type="javax.sql.DataSource"
+          driverClassName="oracle.jdbc.driver.OracleDriver"
+          loginTimeout="10" 
+          maxWait="5000"
+          username="system"
+          password="1111"
+          url="jdbc:oracle:thin:@localhost:1521:XE"
+    	  />     
+      </Context>
+      
+      
+      
+      </Host>
     
     
     </Engine>
