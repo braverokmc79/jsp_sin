@@ -19,6 +19,8 @@ userBean 작업만 하기 때문이다. -->
 	//데이커 저장 메소드를 호출
 	bdao.insertBoard(boardbean);
 
+	//게시글저장후 전체게시글 보기
+	response.sendRedirect("BoardList.jsp");
 %>
 
 

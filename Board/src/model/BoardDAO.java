@@ -3,6 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -85,8 +86,57 @@ public class BoardDAO {
 	}
 	
 	
+	
+	//모든 게시글을 리턴해주는 
+	public Vector<BoardBean> getAllBoard(){		
+		//리넡할 객체 선언
+		Vector<BoardBean> v =new Vector<>();
+		getCon();
+		try{
+			//쿼리 준비
+			String sql ="select * from board order by ref desc, re_step asc";
+			//쿼리를 실행할객체 선언
+			pstmt =con.prepareStatement(sql);
+			//쿼리실행 후 결과 저장
+			rs=pstmt.executeQuery();
+			//데이터 개수가 몇개인지 모르기에 반복문을 이용하여 데이터를 추출
+			while(rs.next()){
+				//데이터를 패키징( 가방  = Boardbean 클래스를 이용)해줌
+				BoardBean bean =new BoardBean();
+				bean.setNum(rs.getInt("num"));
+				bean.setWriter(rs.getString("WRITER"));
+				bean.setEmail(rs.getString("EMAIL"));
+				bean.setSubject(rs.getString("SUBJECT"));
+				bean.setPassword(rs.getString("PASSWORD"));
+				bean.setReg_date(rs.getDate("REG_DATE").toString());
+				bean.setRef(rs.getInt("ref"));
+				bean.setRe_step(rs.getInt("ref_step"));
+				bean.setRe_level(rs.getInt("REF_LEVEL"));
+				bean.setReadcount(rs.getInt("READCOUNT"));
+				bean.setContent(rs.getString("CONTENT"));
+				//패키징한 데이터를 벡터에 저장
+				v.add(bean);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				//자원 반납
+				if(rs!=null)con.close();
+				if(pstmt!=null)con.close();
+				if(con!=null)con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return v;
+	}
+	
+	
+	
+	
 }
-
 
 
 
