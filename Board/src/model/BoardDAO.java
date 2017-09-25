@@ -225,7 +225,7 @@ public class BoardDAO {
 	
 	
 	
-	//boardUpdate용 하나의 게시글을 리턴
+	//boardUpdate용 Delete 시 하나의 게시글을 리턴
 	public BoardBean getOneUpdateBoard(int num){
 		//리턴타입 선언
 		BoardBean bean =new BoardBean();
@@ -310,6 +310,28 @@ public class BoardDAO {
 		}
 	}
 	
+	
+	//하나의 게시글을 삭제하는 메소드 입니다.
+	public void deleteBoard(int num){
+		
+		getCon();
+		try{
+			//쿼리 준비
+			String sql ="delete from board where num=?";
+			pstmt=con.prepareStatement(sql);
+			//?
+			pstmt.setInt(1, num);
+			//쿼리 실행
+			pstmt.executeUpdate();
+			//자원 반납
+			con.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//자원 반납
+			closed();
+		}
+	}
 	
 	
 }
