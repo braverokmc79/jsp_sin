@@ -58,7 +58,7 @@ public class BoardDAO {
 //			String sql =" insert into board values( board_seq.NEXTVAL, ?, ? , ?, ? , )";
 			
 		String sql =" insert into BOARD (NUM, WRITER, EMAIL, SUBJECT, PASSWORD, REG_DATE, REF, ";
-			   sql +="	REF_STEP, REF_LEVEL, READCOUNT, CONTENT) "; 
+			   sql +="	RE_STEP, RE_LEVEL, READCOUNT, CONTENT) "; 
 			   sql +=" values(board_seq.NEXTVAL, ? ,? , ?, ?, sysdate, ?, ?, ? , 0, ? ) ";
 			pstmt=con.prepareStatement(sql);
 			//?에 값을 맵핑	  	
@@ -89,7 +89,7 @@ public class BoardDAO {
 		getCon();
 		try{
 			//쿼리 준비
-			String sql ="select * from board order by ref desc, REF_STEP asc";
+			String sql ="select * from board order by ref desc, RE_LEVEL asc";
 			//쿼리를 실행할객체 선언
 			pstmt =con.prepareStatement(sql);
 			//쿼리실행 후 결과 저장
@@ -105,8 +105,8 @@ public class BoardDAO {
 				bean.setPassword(rs.getString("PASSWORD"));
 				bean.setReg_date(rs.getDate("REG_DATE").toString());
 				bean.setRef(rs.getInt("ref"));
-				bean.setRe_step(rs.getInt("REF_STEP"));
-				bean.setRe_level(rs.getInt("REF_LEVEL"));
+				bean.setRe_step(rs.getInt("RE_STEP"));
+				bean.setRe_level(rs.getInt("RE_LEVEL"));
 				bean.setReadcount(rs.getInt("READCOUNT"));
 				bean.setContent(rs.getString("CONTENT"));
 				//패키징한 데이터를 벡터에 저장
@@ -152,8 +152,8 @@ public class BoardDAO {
 				bean.setPassword(rs.getString("PASSWORD"));
 				bean.setReg_date(rs.getDate("REG_DATE").toString());
 				bean.setRef(rs.getInt("ref"));
-				bean.setRe_step(rs.getInt("REF_STEP"));
-				bean.setRe_level(rs.getInt("REF_LEVEL"));
+				bean.setRe_step(rs.getInt("RE_STEP"));
+				bean.setRe_level(rs.getInt("RE_LEVEL"));
 				bean.setReadcount(rs.getInt("READCOUNT"));
 				bean.setContent(rs.getString("CONTENT"));				
 			}
@@ -178,6 +178,51 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	//답변글이 저장되는 메소드
+	public void reWriteBoard(BoardBean bean){
+		//부모글 그룹과 글레벨 글스텝을 읽어드림
+		int ref=bean.getRef();
+		int re_step=bean.getRe_step();
+		int re_level=bean.getRe_level();
+		
+		//System.out.println("re_step :" +re_step + " :  re_level :" +re_level);
+		getCon();
+		
+		try{
+			////////////// 핵심 코드   ////////////////
+			//1.부모 글보다 큰 re_level 의 값을 전부 1씩 증가시켜줌
+			String levelsql="update board set re_level =re_level+1 where ref=? and re_level > ?";
+			//쿼리실행객체 선언
+			pstmt=con.prepareStatement(levelsql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, re_level);
+			//쿼리실행
+			pstmt.executeUpdate();
+			//답변글 데이터를 저장
+			String sql =" insert into BOARD (NUM, WRITER, EMAIL, SUBJECT, PASSWORD, REG_DATE, REF, ";
+			   sql +="	RE_STEP, RE_LEVEL, READCOUNT, CONTENT) "; 
+			   sql +=" values(board_seq.NEXTVAL, ? ,? , ?, ?, sysdate, ?, ?, ? , 0, ? ) ";
+			pstmt =con.prepareStatement(sql);
+			//?에 값을 대입
+			pstmt.setString(1, bean.getWriter());
+			pstmt.setString(2, bean.getEmail());
+			pstmt.setString(3, bean.getSubject());
+			pstmt.setString(4, bean.getPassword());
+			pstmt.setInt(5, ref);//부모의 ref값을 넣어줌
+			pstmt.setInt(6, re_step+1);//답글이기에 부모 글 re_step 에 1을 더해줌
+			pstmt.setInt(7, re_level+1);
+			pstmt.setString(8, bean.getContent());
+			pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+		
+	}
+	
 	
 	
 	

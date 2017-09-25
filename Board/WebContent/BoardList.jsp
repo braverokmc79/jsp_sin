@@ -51,7 +51,20 @@
 			%>		
 							<tr>		
 			<td><%= i+1%></td>
-			<td><a href="BoardInfo.jsp?num=<%= bean.getNum() %>" ><%= bean.getSubject()  %></a></td>
+			
+			<td><a href="BoardInfo.jsp?num=<%= bean.getNum() %>" >
+			<%
+				if(bean.getRe_step() >1){
+					for(int j =0; j<(bean.getRe_step()*5); j++){
+			%>
+					&nbsp;
+			<%						
+					}
+				}		
+			%>
+			<%= bean.getSubject()  %></a></td>
+			
+			
 			<td><%=bean.getWriter() %></td>
 			<td><%= bean.getReg_date() %></td>
 			<td><%= bean.getReadcount() %></td>

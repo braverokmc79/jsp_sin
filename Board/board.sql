@@ -16,6 +16,7 @@ CREATE SEQUENCE  BOARD_SEQ
 			nocache;
 
 			
+drop table board;
 create table board(
 
 	num number primary key,
@@ -25,9 +26,10 @@ create table board(
     password varchar2(10),
     reg_date  Date,
 	ref number,
-    ref_step number,
-    ref_level  number,
+    re_step number,
+    re_level  number,
 	readcount number,
     content  varchar2(3000)
 	
-);			
+);	
+		

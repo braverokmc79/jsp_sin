@@ -57,7 +57,7 @@
 		<tr>
 			<td colspan="4" class="text-center">
 			  <input type="button" class="btn btn-success"  value="답글 쓰기" 
-onclick="location.href='BoardReWriteForm.jsp?num=<%=bean.getNum()%>&ref=<%=bean.getRef() %>&ref_step=<%= bean.getRe_step() %>&ref_level=<%=bean.getRe_level() %>'"  		  >
+onclick="location.href='BoardReWriteForm.jsp?num=<%=bean.getNum()%>&ref=<%=bean.getRef() %>&re_step=<%= bean.getRe_step() %>&re_level=<%=bean.getRe_level() %>'"  		  >
 	<input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='BoardUpdateForm.jsp?num=<%= bean.getNum()%>'">		  
 <input type="button" class="btn btn-danger" value="삭제하기" onclick="location.href='BoardDeleteForm.jsp?num=<%= bean.getNum()%>'">
 <input type="button" class="btn btn-primary" value="목록보기" onclick="location.href='BoardList.jsp'">

@@ -11,8 +11,8 @@
 	//게시글 읽기해서 답변글쓰기를 클릭하면 넘겨주는 데이터를 받아줌
 	int num =Integer.parseInt(request.getParameter("num"));
 	int ref =Integer.parseInt(request.getParameter("ref"));
- 	int ref_step =Integer.parseInt(request.getParameter("ref_step"));
- 	int ref_level =Integer.parseInt(request.getParameter("ref_level"));
+ 	int re_step =Integer.parseInt(request.getParameter("re_step"));
+ 	int re_level =Integer.parseInt(request.getParameter("re_level"));
 
 %>
 
@@ -51,8 +51,8 @@
 		 		
 		 			<input type="hidden" name="num"  value="<%= num %>">
 			 		<input type="hidden" name="ref"  value="<%= ref %>">
-			 		<input type="hidden" name="ref_step"  value="<%= ref_step %>">
-			 		<input type="hidden" name="ref_level"  value="<%= ref_level %>">
+			 		<input type="hidden" name="re_step"  value="<%= re_step %>">
+			 		<input type="hidden" name="re_level"  value="<%= re_level %>">
 		 		
 		 			<input type="submit" value="답글쓰기완료" class="btn btn-success">
 		 			<input type="reset" value="취소" class="btn btn-warning">
@@ -67,8 +67,6 @@
 		</form>	
 	</div>
 </div>
-
-
 
 
 <jsp:include page="Bottom.jsp"/>
