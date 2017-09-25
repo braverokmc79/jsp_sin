@@ -28,6 +28,6 @@ create table board(
     ref_step number,
     ref_level  number,
 	readcount number,
-    content  varchar2(500)
+    content  varchar2(3000)
 	
 );			
