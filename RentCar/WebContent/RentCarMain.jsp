@@ -10,7 +10,7 @@
 <jsp:include page="Top.jsp" />
 
 <%
-	String center =request.getParameter("Center");
+	String center =request.getParameter("center");
 	//처음 실행시에는 center 값이 넘어오지 않기에
 	if(center==null){//null 처리해줌
 		center="Center.jsp";//디폴트 cetner 값을 부여

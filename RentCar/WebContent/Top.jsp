@@ -24,11 +24,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">SM 렌트카</a>
+              <a class="navbar-brand" href="RentCarMain.jsp">SM 렌트카</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="CarReserveMain.jsp">예약하기</a></li>
+                <li class="active"><a href="RentCarMain.jsp?center=CarReserveMain.jsp">예약하기</a></li>
                 <li><a href="#about">예약확인</a></li>
                 <li><a href="#contact">자유게시판</a></li>
                 <li><a href="#contact">이벤트</a></li>

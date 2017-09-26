@@ -52,7 +52,28 @@
     margin-top: -15px;
     font-size: 30px;
 }
+#marketing{
+	margin-top: 200px;
+
+}
+
+.img-circle{
+	border-radius:5%;
+	box-shadow: 5px 5px 3px #aaaaaa;
+}
+
+.img-circle:HOVER {
+    cursor:pointer;
+	box-shadow: 20px 20px 13px #aaaaaa;	
+}
+
+.divider{
+	border: 1px solid #666;
+	box-shadow:5px 5px 3px #aaaaaa;
+}
 </style>
+    
+    
     
     
 

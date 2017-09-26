@@ -54,8 +54,9 @@ public class RentcarDAO {
 				bean.setInfo(rs.getString(8));
 				//벡터를 빈 클래스에 저장
 				v.add(bean);
+				
 				count++;
-				if(count >3)break; //반복문을 빠져나가시오.
+				if(count >=3)break; //반복문을 빠져나가시오.
 			}
 			
 		}catch(Exception e){
@@ -77,21 +78,6 @@ public class RentcarDAO {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
