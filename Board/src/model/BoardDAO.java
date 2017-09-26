@@ -83,16 +83,21 @@ public class BoardDAO {
 	
 	
 	//모든 게시글을 리턴해주는 
-	public Vector<BoardBean> getAllBoard(){		
+	public Vector<BoardBean> getAllBoard(int start, int end){		
 		//리넡할 객체 선언
 		Vector<BoardBean> v =new Vector<>();
 		getCon();
 		try{
 			//쿼리 준비
-			String sql ="select * from board order by ref desc, RE_LEVEL asc";
+			String sql ="select *  from "
+					+ " (select A.* , Rownum Rnum from (select * from board order by ref desc, re_step asc) A ) "
+					+ " where Rnum >= ? and Rnum <= ?";
+					
 			//쿼리를 실행할객체 선언
 			pstmt =con.prepareStatement(sql);
 			//쿼리실행 후 결과 저장
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			rs=pstmt.executeQuery();
 			//데이터 개수가 몇개인지 모르기에 반복문을 이용하여 데이터를 추출
 			while(rs.next()){
