@@ -334,6 +334,30 @@ public class BoardDAO {
 	}
 	
 	
+	//전체 글의 갯수를 리턴하는 메소드
+	public int getAllCount(){
+		getCon();
+		//게시글 전체수를 저장하는 변수
+		int count =0;
+		try{
+			//쿼리준비
+			String sql ="select count(*) from board";
+			//쿼리를 실행할 객체 선언
+			pstmt = con.prepareStatement(sql);
+			//쿼리 실행 후 결과를 리턴
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				count =rs.getInt(1);
+			}
+			con.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	
+	
 }
 
 
