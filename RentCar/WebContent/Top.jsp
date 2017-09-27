@@ -33,8 +33,14 @@
                 <li><a href="#contact">자유게시판</a></li>
                 <li><a href="#contact">이벤트</a></li>
                 <li><a href="#contact">고객센터</a></li>
-				<li><a href="#"><%= id %>님 반갑습니다.</a></li>
-
+				<li><a href="#" style="color:#fff"><b><%= id %></b> 님 반갑습니다.</a></li>
+				<%
+					if(id.equals("GUEST")){
+				%>
+				<li><a href="RentCarMain.jsp?center=MemberLogin.jsp	" ><button class="btn btn-primary">로그인</button></a></li>
+				<%		
+					}
+				%>
               </ul>
             </div>
           </div>

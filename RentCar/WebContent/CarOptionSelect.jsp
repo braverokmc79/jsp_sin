@@ -20,12 +20,12 @@
     	</div>
     	
     	<div class="col-sm-5">
-    		<form action="RentCarMain.jsp?center=CarReserveResult.jsp" method="post">
+    		<form action="RentCarMain.jsp" method="post">
     		<table class="table">
     			<tr>
     				<th>대여기간</th>
     				<td>
-	    				 <select name="reserveday" class="form-control">
+	    				 <select name="dday" class="form-control">
 	    				   <option value="1">1일</option>
 	    				   <option value="2">2일</option>
 	    				   <option value="3">3일</option>
@@ -85,6 +85,8 @@
     	
     			<tr>
     				<td colspan="2" class="text-center">
+    				<input type="hidden" value="CarReserveResult.jsp" name="center">
+    				<input type="hidden" value="<%= no %>"  name="no" >
     				<input type="submit" value="차량예약하기" class="form-control" style="background-color: #222222; color:#fff">
     				</td>
     			</tr>
