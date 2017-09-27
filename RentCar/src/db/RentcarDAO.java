@@ -125,6 +125,45 @@ public class RentcarDAO {
 		}
 	}
 	
+	//회원의 예약정보를 리턴하는 메소드
+	public Vector<CarViewBean> getAllReserve(String id){
+		Vector<CarViewBean> v=new Vector<CarViewBean>();
+		CarViewBean bean=null;
+		getCon();
+		try{
+			//쿼리문
+			String sql="select * from  RENTCAR natural join CARRESERVE "
+					+ " where  sysdate < to_date(rday, 'YYYY-MM-DD') and id= ?";
+			
+			pstmt =con.prepareStatement(sql);
+			//?
+			pstmt.setString(1, id);
+			//결과리턴
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				bean=new CarViewBean();
+				bean.setName(rs.getString("name"));
+				bean.setDday(rs.getInt("dday"));
+				bean.setImg(rs.getString("img"));
+				bean.setPrice(rs.getInt("price"));
+				bean.setQty(rs.getInt("qty"));
+				bean.setRday(rs.getString("rday"));
+				bean.setUsenavi(rs.getInt("usenavi"));
+				bean.setUserin(rs.getInt("userin"));
+				bean.setUseseat(rs.getInt("useseat"));
+				bean.setUsewifi(rs.getInt("usewifi"));
+				v.add(bean);
+	
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+		return v;
+	}
+	
 	
 	//자원 닫는 메소드
 	private void closed(){

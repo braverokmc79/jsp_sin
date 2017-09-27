@@ -29,7 +29,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="RentCarMain.jsp?center=CarReserveMain.jsp">예약하기</a></li>
-                <li><a href="#about">예약확인</a></li>
+                <li><a href="RentCarMain.jsp?center=CarReserveView.jsp">예약확인</a></li>
                 <li><a href="#contact">자유게시판</a></li>
                 <li><a href="#contact">이벤트</a></li>
                 <li><a href="#contact">고객센터</a></li>

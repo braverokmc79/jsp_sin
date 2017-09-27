@@ -7,7 +7,7 @@ create table RentCar (
 	usepeople number,
 	company varchar(50),
     img varchar2(50),
-	info long
+	info varchar2(3000)
 
 
 );
@@ -35,7 +35,7 @@ insert into rentcar values (18, 'SM5', 1,  2700, 4, 'BMW', '18.jpg' , 'SM5 ìë
 select * from rentcar;
 
 
-
+commit;
 
 
 

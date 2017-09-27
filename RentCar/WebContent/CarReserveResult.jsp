@@ -75,10 +75,9 @@
 		//차량 정보 얻어오기
 		CarListBean cbean = rdao.getOneCar(rbean.getNo());
 	
-		System.out.println("//차량 정보 얻어오기 :" +cbean.toString());
 		//차량 총 금액
 		int totalcar=cbean.getPrice()*rbean.getQty()*rbean.getDday();
-		System.out.println(cbean.getPrice()+" : 수량 -" + rbean.getQty() + " : " + rbean.getDday() +"//차량 총 금액 :" +cbean.toString());
+	
 		//옵션금액
 		int usein=0;
 		if(rbean.getUserin()==1)usein=10000;
