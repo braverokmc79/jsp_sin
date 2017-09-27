@@ -56,7 +56,10 @@
 	margin-top: 100px;
 
 }
+#marketing2{
+	margin-top: 50px;
 
+}
 .img-circle{
 	border-radius:5%;
 	box-shadow: 5px 5px 3px #aaaaaa;
@@ -106,6 +109,10 @@
 	
 }
 
+#resultImg{
+	border: 1px solid #666;
+	box-shadow:5px 5px 3px #aaaaaa;
+}
 
 </style>
     

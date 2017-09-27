@@ -21,7 +21,7 @@
 			CarListBean bean =v.get(i);
 	%>
         <div class="col-lg-4">
-          <img class="img-circle" src="img/<%=bean.getImg() %>" alt="Generic placeholder image" width="300" height="200" 
+          <img class="img-circle" src="img/<%=bean.getImg() %>"  width="300" height="200" 
              onclick="location.href='RentCarMain.jsp?center=CarreserveInfo.jsp&no=<%= bean.getNo() %>'" >
           <h2><%=bean.getName() %></h2>
           <p><%= bean.getInfo() %></p>
@@ -33,11 +33,7 @@
       </div><!-- /.row -->  
       
 </div>      
-
-
   <hr class="divider">
-
-
 
 <div class="row">
 	<div class="col-xs-2 col-md-2"></div>

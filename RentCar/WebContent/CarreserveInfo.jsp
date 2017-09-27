@@ -25,10 +25,11 @@
 		<h2 class="text-center" id="carTitle"><%= bean.getName() %> 차량 선택</h2>
 		<div class="col-xs-1 col-md-1"></div>
     	<div class="col-sm-5">
-    		<img src="img/<%= bean.getImg() %>" id="infoImg">
+    		<img src="img/<%= bean.getImg() %>"  class="img-responsive img-rounded"> 		
     	</div>
     	
     	<div class="col-sm-5">
+    	<div class="table-responsive">
     		<form action="RentCarMain.jsp">
     		<table class="table">
     			<tr>
@@ -68,6 +69,7 @@
     			
     		</table>
     		</form>	
+    		</div>
     	</div>
     	<div class="col-xs-1 col-md-1"></div>	
 	</div>      

@@ -95,6 +95,36 @@ public class RentcarDAO {
 		return result;
 	}
 	
+	//하나의 예약 정보를 저장하는 메소드
+	public void setReserveCar(CarReserveBean  bean){
+		getCon();
+		try{
+			String sql ="insert into CARRESERVE (RESERVENO, NO, ID, QTY, DDAY, RDAY, USERIN, USEWIFI, USESEAT, USENAVI )"
+					+ " VALUES(RESERVE_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pstmt =con.prepareStatement(sql);
+			
+			System.out.println(bean.toString());
+			
+			//?에 값을 대입
+			pstmt.setInt(1, bean.getNo());
+			pstmt.setString(2, bean.getId());
+			pstmt.setInt(3, bean.getQty());
+			pstmt.setInt(4, bean.getDday());
+			pstmt.setString(5, bean.getRday());
+			
+			pstmt.setInt(6, bean.getUserin());
+			pstmt.setInt(7, bean.getUsewifi());
+			pstmt.setInt(8, bean.getUseseat());
+			pstmt.setInt(9, bean.getUsenavi());
+			pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+	}
+	
 	
 	//자원 닫는 메소드
 	private void closed(){

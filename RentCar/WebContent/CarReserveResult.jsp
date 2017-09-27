@@ -1,3 +1,5 @@
+<%@page import="db.CarListBean"%>
+<%@page import="db.RentcarDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,16 +12,11 @@
 </jsp:useBean> 
 
    
-<div class="container marketing" id="marketing">
+<div class="container marketing" id="marketing2">
    <!-- Three columns of text below the carousel -->
-      <div class="row">   
-      		<h2 class="text-center" id="carTitle">옵션 선택</h2>
-		<div class="col-xs-1 col-md-1"></div>
-		<div class="col-sm-5"> 
-		
-		
+      <div class="row">
 <%
-	System.out.println(rbean.toString());
+	
 	String id =(String)session.getAttribute("id");
 	if(id==null){
 %> 
@@ -67,14 +64,77 @@
 <%		
 		}
 		
-	}
-
+		
+		//결과적으로 아무런 문제가 없다면 데이터 저장후 결과 페이지 보여주기
+		//아이디 값이 빈클래스에 없기에
+		rbean.setId(id);
+		
+		//데이터 베이스에 빈클래스 저장
+		RentcarDAO rdao =new RentcarDAO();
+		rdao.setReserveCar(rbean);	
+		//차량 정보 얻어오기
+		CarListBean cbean = rdao.getOneCar(rbean.getNo());
 	
+		System.out.println("//차량 정보 얻어오기 :" +cbean.toString());
+		//차량 총 금액
+		int totalcar=cbean.getPrice()*rbean.getQty()*rbean.getDday();
+		System.out.println(cbean.getPrice()+" : 수량 -" + rbean.getQty() + " : " + rbean.getDday() +"//차량 총 금액 :" +cbean.toString());
+		//옵션금액
+		int usein=0;
+		if(rbean.getUserin()==1)usein=10000;
+		int usewifi =0;
+		if(rbean.getUsewifi()==1)usewifi=10000;
+		int useseate=0;
+		if(rbean.getUseseat()==1)useseate=10000;
+		
+	 	int totaloption =(rbean.getQty()*rbean.getDday())*(usein+usewifi+useseate);
+
+%>		
+
+	  <div class="col-sm-12"> 	
+			<h2></h2>
+			<div class="table-responsive">
+			<table class="table">
+				<caption></caption>
+				<thead><tr><td colspan="2" class="text-center"><h2>차량 예약 완료 화면</h2></td></tr></thead>
+				<tbody>
+				 <tr>
+				 	<td colspan="2" class="text-right">
+				 	 <img src="img/<%= cbean.getImg() %>" class="img-responsive img-rounded" id="resultImg">
+				 	</td>
+				 </tr>			 
+				
+				 <tr>
+				  <th>차량 총예약금액</th>
+				  <td><%= totalcar %>원</td>
+				 </tr>
+				 
+				<tr>
+				  <th>차량 총옵션 금액</th>
+				  <td><%= totaloption %>원</td>
+				</tr>
+				 
+				<tr>
+				 <th>차량 총금액</th>
+				 <td><%= totaloption+totalcar %>원  </td>	
+				 </tr>
+			 </tbody>
+			</table>
+			</div>
+	  </div>
+
+
+<%
+	}
 %>
-		</div>
+	  
  </div>
  
 </div>
+ 
+  <hr class="divider">
+ 
+ 
  
  
     

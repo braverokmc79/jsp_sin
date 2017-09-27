@@ -45,7 +45,7 @@ create table carreserve(
    no number not null,
    id varchar2(50) not null,
    qty number not null,
-   ddday number not null,
+   dday number not null,
    rday varchar2(50) not null,
    userin number not null,
    usewifi number not null,
@@ -54,6 +54,19 @@ create table carreserve(
 	
 
 );
+
+-- 시퀀스 생성
+
+create sequence reserve_seq 
+	start with 1
+	increment by 1
+	nomaxvalue 
+    nocycle
+    nocache;
+
+
+
+
 
 
 

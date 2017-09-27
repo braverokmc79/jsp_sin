@@ -85,6 +85,7 @@
     	
     			<tr>
     				<td colspan="2" class="text-center">
+    				<input type="hidden" value="<%= qty %>" name="qty">
     				<input type="hidden" value="CarReserveResult.jsp" name="center">
     				<input type="hidden" value="<%= no %>"  name="no" >
     				<input type="submit" value="차량예약하기" class="form-control" style="background-color: #222222; color:#fff">
