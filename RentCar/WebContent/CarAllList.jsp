@@ -3,19 +3,18 @@
 <%@page import="db.RentcarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 데이터 베이스에 연결하여 최신순 자동차 3대만 뿌려주는 데이터를 가져옴  -->
 <%
+
 	RentcarDAO rdao =new RentcarDAO();
-    //벡터를 이용하여 자동차를 저장
-    Vector<CarListBean> v =rdao.getSelectCar();
-
+	Vector<CarListBean> v =rdao.getAllCar();
+	
 %>
-
+		
 <div class="container marketing" id="marketing">
-	<h2 class="text-center" id="carTitle">최신형 자동차</h2>
+	<h2 class="text-center" id="carTitle">차량 전체 목록</h2>
    <!-- Three columns of text below the carousel -->
       <div class="row">
-
+		
 	<%
 		for(int i=0; i <v.size(); i++){
 			CarListBean bean =v.get(i);
@@ -67,9 +66,4 @@
 
 </div>
 
-
-
-
-
-
-
+    

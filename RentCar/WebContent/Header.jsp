@@ -53,7 +53,7 @@
     font-size: 30px;
 }
 #marketing{
-	margin-top: 200px;
+	margin-top: 100px;
 
 }
 
@@ -71,6 +71,42 @@
 	border: 1px solid #666;
 	box-shadow:5px 5px 3px #aaaaaa;
 }
+#carTitle{
+	margin-bottom: 30px;
+}
+
+
+
+
+#infoImg:HOVER{
+	cursor:pointer;
+	-webkit-transform:scale(1.2);
+    -moz-transform:scale(1.2);
+    -ms-transform:scale(1.2);   
+    -o-transform:scale(1.2);
+    transform:scale(1.3);
+    
+}
+
+@media  screen and (min-width:200px) and (max-width:500px) {
+
+	#infoImg{
+		max-width:200px;	
+		box-shadow: 5px 5px 3px #aaaaaa; 
+	}
+	
+}
+@media  screen and (min-width:501px) and (max-width:1568px) {
+
+
+	#infoImg{
+		max-width:400px;	
+		box-shadow: 5px 5px 3px #aaaaaa; 
+	}
+	
+}
+
+
 </style>
     
     

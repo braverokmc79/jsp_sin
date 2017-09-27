@@ -34,6 +34,45 @@ public class RentcarDAO {
 		return commonCarBean(sql, true, 3);
 	}
 	
+		
+	
+	//카테고리별 자동차 리스트를 저장하는 메소드
+	public Vector<CarListBean> getCategoryCar(int cate){
+		//sql injection 에 대한 보안상 파라미터값이 숫자가 아니면  cate 값은 1로변경 
+		if(!isNumeric(String.valueOf(cate))) cate=1 ;
+		String sql="select * from rentcar where category=" +cate;
+		return commonCarBean(sql, false, 0);
+	}
+	
+	//모든 차량을 검색하는 메소드
+	public  Vector<CarListBean> getAllCar(){
+		String sql="select * from rentcar ";
+		return commonCarBean(sql, false, 0);
+	}
+	
+	
+	//하나의 자동차 정보를 리턴하는 메소드
+	public CarListBean getOneCar(int no){
+		//sql injection 에 대한 보안상 파라미터값이 숫자가 아니면  no 값은 1로변경 
+		if(!isNumeric(String.valueOf(no))) no=1 ;
+	
+		String sql ="select * from RentCar where no="+no;
+		Vector<CarListBean> v=commonCarBean(sql, false, 0);
+		//리턴타입 선언
+		CarListBean bean =v.get(0);
+		return bean;
+	}
+	
+	//보안상 파라미터값이 숫자인지 체크
+	public static boolean isNumeric(String s){
+		try{
+			Double.parseDouble(s);
+			return true;
+		}catch(NumberFormatException e){
+			return false;
+		}
+	}
+	
 	
 	//자원 닫는 메소드
 	private void closed(){
@@ -45,14 +84,6 @@ public class RentcarDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	//카테고리별 자동차 리스트를 저장하는 메소드
-	public Vector<CarListBean> getCategoryCar(int cate){
-		String sql="select * from rentcar where category=" +cate;
-		return commonCarBean(sql, false, 0);
-	}
-	
 	
 	// 공통 부분 메소드 로 만듬.
 	private Vector<CarListBean> commonCarBean(String sql, boolean option, int num){
@@ -93,10 +124,13 @@ public class RentcarDAO {
 	}
 	
 	
-	
+
 
 	
 }
+
+
+
 
 
 
