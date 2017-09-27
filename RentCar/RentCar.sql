@@ -35,3 +35,26 @@ insert into rentcar values (18, 'SM5', 1,  2700, 4, 'BMW', '18.jpg' , 'SM5 ìë
 select * from rentcar;
 
 
+
+
+
+
+create table carreserve(
+
+   reserveno  number primary key,
+   no number not null,
+   id varchar2(50) not null,
+   qty number not null,
+   ddday number not null,
+   rday varchar2(50) not null,
+   userin number not null,
+   usewifi number not null,
+   useseat number not null,
+   usenavi number not null
+	
+
+);
+
+
+
+

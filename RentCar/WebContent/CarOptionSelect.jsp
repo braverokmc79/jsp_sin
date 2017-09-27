@@ -76,7 +76,7 @@
     			<tr>
     				<th>베이비시트 적용</th>
     				<td>
-    					<select name="userseat" class="form-control">
+    					<select name="useseat" class="form-control">
     						<option value="1">적용 (1일 1만원)</option>
     						<option value="2">비적용</option>
     					</select>
