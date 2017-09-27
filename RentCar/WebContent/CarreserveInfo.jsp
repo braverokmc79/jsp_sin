@@ -29,7 +29,7 @@
     	</div>
     	
     	<div class="col-sm-5">
-    		
+    		<form action="RentCarMain.jsp">
     		<table class="table">
     			<tr>
     				<th>차량이름</th>
@@ -57,12 +57,17 @@
     				<th>제조회사</th>
     				<td><%= bean.getCompany() %></td>
     			</tr>
-				<tr>
-    				<td colspan="2" class="text-center"><input type="submit" class="btn"  value="옵션 선택후 구매하기"></td>
+				<tr>					
+    				<td colspan="2" class="text-center">
+    				<input type="hidden" value="CarOptionSelect.jsp"   name="center">
+    				<input type="hidden" value="<%= bean.getImg() %>"   name="img">
+    				<input type="hidden" value="<%= bean.getNo() %>"   name="no">
+    				<input type="submit" class="btn"  value="옵션 선택후 구매하기">
+    				</td>
     			</tr>
     			
     		</table>
-    			
+    		</form>	
     	</div>
     	<div class="col-xs-1 col-md-1"></div>	
 	</div>      
