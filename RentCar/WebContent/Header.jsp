@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://bootstrapk.com/examples/carousel/favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>SM 카렌트</title>
 
        <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
