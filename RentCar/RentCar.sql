@@ -65,8 +65,29 @@ create sequence reserve_seq
     nocache;
 
 
+drop table Member ;
 
 
+
+CREATE TABLE MEMBER
+(
+  ID     VARCHAR2(120),
+  PASS1  VARCHAR2(120),
+  EMAIL  VARCHAR2(150),
+  TEL    VARCHAR2(120),
+  HOBBY  VARCHAR2(160),
+  JOB    VARCHAR2(115),
+  AGE    VARCHAR2(110),
+  INFO   VARCHAR2(500)
+);
+
+
+
+ALTER TABLE MEMBER ADD (
+  CONSTRAINT MEMBER_PK
+  PRIMARY KEY
+  (ID)
+  ENABLE VALIDATE);
 
 
 

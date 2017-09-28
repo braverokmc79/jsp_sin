@@ -22,8 +22,6 @@
     
     
 %>
-
-
 <div class="container marketing" id="marketing2">
    <!-- Three columns of text below the carousel -->
       <div class="row">

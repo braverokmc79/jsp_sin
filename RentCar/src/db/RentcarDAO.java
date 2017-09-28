@@ -28,13 +28,28 @@ public class RentcarDAO {
 		}
 	}	
 	
-	//최신순 3대의 자동차를 리턴하는 메소드
-	public Vector<CarListBean> getSelectCar(){
+	//메인 최신순 3대의 자동차를 리턴하는 메소드
+	public Vector<CarListBean> getMainSelectCar(){
 		String sql ="select * from RENTCAR  order by no desc";	
 		return commonCarBean(sql, true, 3);
 	}
 	
-		
+	// 메인 배너 3대의 자동차를 리턴하는 메소드
+	public Vector<CarListBean> getMainBannerSelectCar(){
+		String sql ="select * from RENTCAR  order by no asc";	
+		return commonCarBean(sql, true, 3);
+	}
+	
+	
+	// 최신순 6대의 자동차를 리턴하는 메소드
+	public Vector<CarListBean> getSelectCar(){
+		String sql ="select * from RENTCAR  order by no desc";	
+		return commonCarBean(sql, true, 6);
+	}
+	
+	
+	
+	
 	
 	//카테고리별 자동차 리스트를 저장하는 메소드
 	public Vector<CarListBean> getCategoryCar(int cate){

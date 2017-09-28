@@ -10,8 +10,7 @@
 	if(id==null){
 		id="GUEST";
 	}
-%>
-   
+%>   
  <div class="navbar-wrapper">
       <div class="container">
 
@@ -30,15 +29,15 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="RentCarMain.jsp?center=CarReserveMain.jsp">예약하기</a></li>
                 <li><a href="RentCarMain.jsp?center=CarReserveView.jsp">예약확인</a></li>
-                <li><a href="#contact">자유게시판</a></li>
+                <li><a href="RentCarMain.jsp?center=BoardList.jsp">자유게시판</a></li>
                 <li><a href="#contact">이벤트</a></li>
-                <li><a href="#contact">고객센터</a></li>
+                <li><a href="RentCarMain.jsp?center=member/MemberList.jsp">회원목록</a></li>
 				<li><a href="#" style="color:#fff"><b><%= id %></b> 님 반갑습니다.</a></li>
 				<%
 					if(id.equals("GUEST")){
 				%>
-				<li><a href="RentCarMain.jsp?center=MemberLogin.jsp	" ><button class="btn btn-primary">로그인</button></a></li>
-				
+				<li><a href="RentCarMain.jsp?center=MemberLogin.jsp" ><button class="btn btn-primary">로그인</button></a></li>
+				<li><a href="RentCarMain.jsp?center=member/MemberJoin.jsp" ><button class="btn btn-primary">회원가입</button></a></li>
 				<%		
 					}else{ 
 				%>		
@@ -53,5 +52,5 @@
 
       </div>
     </div>
-    
+   
     

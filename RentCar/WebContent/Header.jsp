@@ -78,9 +78,6 @@
 	margin-bottom: 30px;
 }
 
-
-
-
 #infoImg:HOVER{
 	cursor:pointer;
 	-webkit-transform:scale(1.2);
@@ -116,8 +113,4 @@
 
 </style>
     
-    
-    
-    
-
    

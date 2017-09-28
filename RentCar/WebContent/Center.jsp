@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="db.CarListBean"%>
+<%@page import="java.util.Vector"%>
+<%@page import="db.RentcarDAO"%>    
+<%
+	RentcarDAO rdao =new RentcarDAO();
+	//벡터를 이용하여 자동차를 저장
+	Vector<CarListBean> v =rdao.getMainBannerSelectCar();
+
+%>
+    
    <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -10,37 +20,46 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="img/1.jpg" alt="First slide">
+       
+
+              
+      	<%
+      		for(int i=0; i< v.size() ; i++ ){
+      			CarListBean bean =v.get(i);
+      			
+      			String temp="";
+      			String Temp="";
+      			if(i==0){
+      				temp="first-slide";
+      				Temp="First slide";
+      			}else if(i==1){
+      				temp="second-slide";
+      				Temp="Second slide";
+      			}else if(i==2){
+      				temp="third-slide";
+      				Temp="Third slide";
+      			}
+      			
+      			
+      	%>
+      
+        <div class="item<%  if(i==0) out.write(" active");%>">
+          <img class="<%= temp %>" src="img/<%= bean.getImg() %>" >
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1><%=bean.getName() %></h1>
+              <p><%= bean.getInfo() %></p>
+              <p><a class="btn btn-lg btn-primary" href="RentCarMain.jsp?center=CarreserveInfo.jsp&no=<%= bean.getNo() %>" role="button">상세보기</a></p>
             </div>
           </div>
         </div>
-        <div class="item">
-          <img class="second-slide" src="img/2.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="img/3.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
+
+		<% } %>
+        
+        
+        
       </div>
+      
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span id="slideLeft"><< </span>
         <span class="sr-only">Previous</span>

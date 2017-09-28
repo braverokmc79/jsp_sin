@@ -4,12 +4,6 @@
 <%@page import="model.BoardBean"%>
 <%@ page import="java.util.Vector"%>
 <%@ page import="model.BoardDAO"%>    
-<!DOCTYPE html>
-<html>
-<head>
-<jsp:include page="Header.jsp"/>
-</head>
-<body>
 <!-- 게시글 보기에 카운터링을 설정하기위한 변수들을 선언  -->
 <%
 
@@ -34,13 +28,14 @@
 %>
 
 <div class="row">
+<div class="container marketing" id="marketing">
 	<div class="col-xs-2"></div>
 	<div class="col-xs-8 col-md-8">
-		<h2 class="text-center">전체 게시글 보기		
+		<h2 class="text-center">전체 게시글 보기</h2>	
 	  
-		</h2>
+		
 		<p class="text-right">
-		<input type="button" value="글쓰기"  onclick="location.href='BoardWrite.jsp'"  class="btn btn-warning">
+		<input type="button" value="글쓰기"  onclick="location.href='RentCarMain.jsp?center=BoardWrite.jsp'"  class="btn btn-warning">
 		</p>
 		<div class="table-responsive">
 		<table class="table table-bordered table-striped" >
@@ -72,7 +67,7 @@
 							<tr>		
 			<td><%= paging.getNumber() -i %></td>
 			
-			<td><a href="BoardInfo.jsp?num=<%= bean.getNum() %>" >
+			<td><a href="RentCarMain.jsp?center=BoardInfo.jsp?num=<%= bean.getNum() %>" >
 			<%
 				if(bean.getRe_step() >1){
 					for(int j =0; j<(bean.getRe_step()*5); j++){
@@ -102,7 +97,7 @@
 		//이전이라는 링크를 만들건지 파악
 		if(paging.getStartPage() >10){		
 %>
- <li><a href="BoardList.jsp?pageNum=<%=paging.getPrev() %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+ <li><a href="RentCarMain.jsp?center=BoardList.jsp&pageNum=<%=paging.getPrev() %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
  <%	
 		}
  	 //페이징 처리
@@ -110,7 +105,7 @@
 %>
 	<li <% if(i==Integer.parseInt(pageNum))
 			out.print("class='active'");
-		%>><a href="BoardList.jsp?pageNum=<%=i %>"><%=i %><span class="sr-only">(current)</span></a></li>
+		%>><a href="RentCarMain.jsp?center=BoardList.jsp&pageNum=<%=i %>"><%=i %><span class="sr-only">(current)</span></a></li>
 	
 <% 		 
  	 }    
@@ -118,7 +113,7 @@
   	 if( paging.getEndPage() < paging.getPageCount()){
   %>		 
   
-<li><a href="BoardList.jsp?pageNum=<%=paging.getNext() %>" aria-label="next"><span aria-hidden="true">&raquo;</span></a></li>
+<li><a href="RentCarMain.jsp?center=BoardList.jsp&pageNum=<%=paging.getNext() %>" aria-label="next"><span aria-hidden="true">&raquo;</span></a></li>
 <%		
 			
 	}
@@ -127,10 +122,6 @@
 </nav>	
  	 
 
-   
-  
-    
- 	  
 			
 				
 				</td>
@@ -139,6 +130,7 @@
 		</div>
 	
 	</div>
+	 </div>	  
 </div>
 
 
