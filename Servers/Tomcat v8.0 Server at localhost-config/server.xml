@@ -96,16 +96,13 @@
 
 
 
-				<Context docBase="RentCar" path="/RentCar" reloadable="true" source="org.eclipse.jst.jee.server:RentCar">
-					<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxWait="5000" name="jdbc/pool" password="1111" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="system"/>
-
-				</Context>
+				
 
 
 
 				
 				
-			</Host>
+			<Context docBase="Model2-day1" path="/Model2-day1" reloadable="true" source="org.eclipse.jst.jee.server:Model2-day1"/></Host>
 
 
 		</Engine>
