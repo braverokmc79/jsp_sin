@@ -152,6 +152,7 @@ public class RentcarDAO {
 				bean.setUserin(rs.getInt("userin"));
 				bean.setUseseat(rs.getInt("useseat"));
 				bean.setUsewifi(rs.getInt("usewifi"));
+				bean.setReserveno(rs.getInt("reserveno"));
 				v.add(bean);
 	
 			}
@@ -163,6 +164,24 @@ public class RentcarDAO {
 		}
 		return v;
 	}
+	
+	//하나의 예약 삭제
+	public void carRemoveReserve(int reserveno){
+		
+		getCon();
+		try{
+			String sql=" delete from CARRESERVE where reserveno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, reserveno);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+	}
+	
 	
 	
 	//자원 닫는 메소드

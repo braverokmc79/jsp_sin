@@ -2,6 +2,7 @@ package db;
 
 public class CarViewBean {
 	
+	
 	private String name;
 	private int price;
 	private String img;
@@ -12,7 +13,7 @@ public class CarViewBean {
 	private int usewifi; //Wifi 적용
 	private int useseat;  //베이비시트 적용
 	private int usenavi; //네이게이션 적용
-	
+	private int reserveno; //예약 아이디
 	public String getName() {
 		return name;
 	}
@@ -73,13 +74,20 @@ public class CarViewBean {
 	public void setUsenavi(int usenavi) {
 		this.usenavi = usenavi;
 	}
-	
+	public int getReserveno() {
+		return reserveno;
+	}
+	public void setReserveno(int reserveno) {
+		this.reserveno = reserveno;
+	}
 	@Override
 	public String toString() {
 		return "CarViewBean [name=" + name + ", price=" + price + ", img=" + img + ", qty=" + qty + ", dday=" + dday
 				+ ", rday=" + rday + ", userin=" + userin + ", usewifi=" + usewifi + ", useseat=" + useseat
-				+ ", usenavi=" + usenavi + "]";
+				+ ", usenavi=" + usenavi + ", reserveno=" + reserveno + "]";
 	}
+	
+	
 	
 	
 }

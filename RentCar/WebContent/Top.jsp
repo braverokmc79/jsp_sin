@@ -38,7 +38,12 @@
 					if(id.equals("GUEST")){
 				%>
 				<li><a href="RentCarMain.jsp?center=MemberLogin.jsp	" ><button class="btn btn-primary">로그인</button></a></li>
+				
 				<%		
+					}else{ 
+				%>		
+				<li><a href="RentCarMain.jsp?center=Logout.jsp" ><button class="btn btn-danger">로그아웃</button></a></li>						
+			   <%			
 					}
 				%>
               </ul>

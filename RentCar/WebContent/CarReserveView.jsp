@@ -65,7 +65,7 @@
 				<td><%=bean.getUsewifi() %></td>
 				<td><%=bean.getUsenavi() %></td>
 				<td><%=bean.getUseseat() %></td>
-				<td><button class="btn" onclick="location.href='CarReserveDel.jsp'">삭제</button></td>
+				<td><button class="btn" onclick="location.href='CarReserveDel.jsp?reserveno=<%= bean.getReserveno() %>'">삭제</button></td>
 				
 			</tr>
 <%
