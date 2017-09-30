@@ -3,10 +3,13 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import org.eclipse.jdt.internal.compiler.codegen.VerificationTypeInfo;
 
 
 public class MemberDAO {
@@ -68,6 +71,42 @@ public class MemberDAO {
 			}	
 	}
 	
+	
+	//모든 회원 정보를 리턴하는 메소드 작성
+	public Vector<MemberBean> getAllMember(){
+		//리턴 타입 선언
+		Vector<MemberBean> v=new Vector<>();
+		
+		getCon();
+		
+		try{
+			//쿼리 준비
+			String sql ="select * from member ";
+			//쿼리 객체 준비
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();	
+			while(rs.next()){
+				MemberBean bean =new MemberBean();
+				bean.setId(rs.getString(1));
+				bean.setPass1(rs.getString(2));
+				bean.setEmail(rs.getString(3));
+				bean.setTel(rs.getString(4));
+				bean.setHobby(rs.getString(5));
+				bean.setJob(rs.getString(6));
+				bean.setAge(rs.getString(7));
+				bean.setInfo(rs.getString(8));
+				//벡터에 빈클래스를 저장
+				v.add(bean);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+		
+		return v;
+	}
 	
 	
 }

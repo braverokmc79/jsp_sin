@@ -48,7 +48,7 @@ public class MemberJoinProc extends HttpServlet {
 			MemberDAO mdao =new MemberDAO();
 			mdao.insertMember(bean);
 			
-			RequestDispatcher dis =request.getRequestDispatcher("MemberList.jsp");
+			RequestDispatcher dis =request.getRequestDispatcher("MemberlistCon.do");
 		    dis.forward(request, response);
 					
 		}else{
