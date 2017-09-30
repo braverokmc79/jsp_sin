@@ -30,7 +30,6 @@
 </c:if>
 
 
-
 <!-- 반복문 for -->
 
 <c:forEach begin="1" end="10" var="i" step="3">
