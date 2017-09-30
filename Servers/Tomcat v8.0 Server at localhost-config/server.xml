@@ -112,12 +112,25 @@
 
 				<Context docBase="DataBase" path="/DataBase" reloadable="true"
 					source="org.eclipse.jst.jee.server:DataBase">
-					<Resource name="jdbc/pool" auth="Container" type="javax.sql.DataSource"
-						driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10"
-						maxWait="5000" username="system" password="1111"
-						url="jdbc:oracle:thin:@localhost:1521:XE" />
+					<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
+						loginTimeout="10" maxWait="5000" name="jdbc/pool" password="1111"
+						type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE"
+						username="system" />
 				</Context>
 
+
+				<Context docBase="MemberMVC" path="/MemberMVC" reloadable="true"
+					source="org.eclipse.jst.jee.server:MemberMVC" >
+					
+					
+					
+				<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
+					loginTimeout="10" maxWait="5000" name="jdbc/pool" password="1111"
+					type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE"
+					username="system" />
+				</Context>
+				
+					
 			</Host>
 
 
