@@ -12,14 +12,15 @@ public class Paging {
    
    private int currentPage;
    private int pageCount;
-   private int startPage;
-   private int pageBlock;
+   private int startPage;	
+   private int pageBlock=10;//카운터링 처리 숫자
+   
    private int endPage;
    
    
    private int prev; //이전
    private int next; //다음
-   
+   private String html;
    
    
 	public Paging(String pageNum) {
@@ -64,7 +65,7 @@ public class Paging {
    			startPage =((int)(currentPage/10)-1)*10+1;
    		}
    		
-   		pageBlock=10;//카운터링 처리 숫자
+   	
    		endPage =startPage+pageBlock-1;//화면에 보여질 페이지의 마지막 숫자
    		if(endPage > pageCount) endPage =pageCount;
    		
@@ -77,24 +78,33 @@ public class Paging {
    }
 
 
-	public int getPageSize() {
-		return pageSize;
-	}
+   public void paginHtml(String url){
+   	String html= "<nav><ul class='pagination'>";	
+   	//이전이라는 링크를 만들건지 파악
+   	if(startPage >pageSize){
+   		html +="<li><a href='"+url+"?pageNum="+prev+"' aria-label='Previous'><span aria-hidden='true'>"
+   				+ "  &laquo;</span></a></li>";
+   	}
+   	//페이징 처리
+   	String active="";
+   	for(int i=startPage; i<endPage; i++){
+   		
+   		if(i==Integer.parseInt(pageNum)) active ="class='active'";
+   		else active="";	
+   		html +="<li " +active+" ><a href='"+url+"?pageNum="+i+"'>"+i+"<span class='sr-only'>(current)</span></a></li>";
+   	}
+ 	
+   	//다음 이라는 링크를 만들건지 파악
+   	if(endPage < pageCount ){
+   		html +="<li><a href='"+url+"?pageNum="+next+"' aria-label='next'><span aria-hidden='true'>"
+   				+ "  &raquo;</span></a></li>";
+   	}
+   	
+	html +="</ul></nav>";
 
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
-
-	public int getCount() {
-		return count;
-	}
-
-
-	public void setCount(int count) {
-		this.count = count;
-	}
+	this.html=html;
+  	
+   }
 
 
 	public int getNumber() {
@@ -104,16 +114,6 @@ public class Paging {
 
 	public void setNumber(int number) {
 		this.number = number;
-	}
-
-
-	public String getPageNum() {
-		return pageNum;
-	}
-
-
-	public void setPageNum(String pageNum) {
-		this.pageNum = pageNum;
 	}
 
 
@@ -137,78 +137,16 @@ public class Paging {
 	}
 
 
-	public int getCurrentPage() {
-		return currentPage;
+	public String getHtml() {
+		return html;
 	}
 
 
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-
-	public int getPageCount() {
-		return pageCount;
-	}
-
-
-	public void setPageCount(int pageCount) {
-		this.pageCount = pageCount;
-	}
-
-
-	public int getStartPage() {
-		return startPage;
-	}
-
-
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
-
-
-	public int getPageBlock() {
-		return pageBlock;
-	}
-
-
-	public void setPageBlock(int pageBlock) {
-		this.pageBlock = pageBlock;
-	}
-
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
-
-
-	public int getPrev() {
-		return prev;
-	}
-
-
-	public void setPrev(int prev) {
-		this.prev = prev;
-	}
-
-
-	public int getNext() {
-		return next;
-	}
-
-
-	public void setNext(int next) {
-		this.next = next;
+	public void setHtml(String html) {
+		this.html = html;
 	}
 
    
    
-   
-	 	
 	
 }

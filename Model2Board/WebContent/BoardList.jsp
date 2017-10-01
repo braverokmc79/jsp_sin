@@ -27,11 +27,12 @@
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
-	 
+			
+			 <c:set var="cnumber" value='${paging.number }' />
 			 <c:forEach items="${v }"  var="bean">
-			 <c:set var="number" value='${number }' />
+			
 				 <tr>
-			 		<td>${number }</td>
+			 		<td>${cnumber }</td>
 			 		<td><a href="BoardInfo.jsp?num=${bean.num}" >
 			 		 <c:if test="${ bean.re_step >1}">
 			 		 <c:forEach begin="${bean.re_step }"  end="${(bean.re_step -1)*5 }" var="j">
@@ -45,7 +46,7 @@
 					<td>${bean.reg_date}</td>
 					<td>${bean.readcount}</td>
 			 	</tr>
-			 <c:set var="number" value='${number-1 }' />
+			 <c:set var="cnumber" value='${cnumber-1 }' />
 			 </c:forEach>
 			 
 
@@ -53,38 +54,11 @@
 			<tr>
 				<td colspan="5" class="text-center">
 
-				
-<!-- 페이지 카우터링 소스를 작성 -->
-<nav>
-  <ul class="pagination">				
-<%-- <%
-		//이전이라는 링크를 만들건지 파악
-		if(paging.getStartPage() >10){		
-%>
- <li><a href="BoardList.jsp?pageNum=<%=paging.getPrev() %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
- <%	
-		}
- 	 //페이징 처리
- 	 for(int i=paging.getStartPage(); i<=paging.getEndPage(); i++){
-%>
-	<li <% if(i==Integer.parseInt(pageNum))
-			out.print("class='active'");
-		%>><a href="BoardList.jsp?pageNum=<%=i %>"><%=i %><span class="sr-only">(current)</span></a></li>
-	
-<% 		 
- 	 }    
-     //다음 이라는 링크를 만들건지 파악
-  	 if( paging.getEndPage() < paging.getPageCount()){
-  %>		 
-  
-<li><a href="BoardList.jsp?pageNum=<%=paging.getNext() %>" aria-label="next"><span aria-hidden="true">&raquo;</span></a></li>
-<%		
 			
-	}
-%> --%>
-  </ul>
-</nav>	
- 			
+
+				
+<!-- 페이지징 처리 호출 -->
+		${paging.html }	
 				
 				</td>
 			</tr>
@@ -93,9 +67,6 @@
 	
 	</div>
 </div>
-
-
-
 
 <jsp:include page="Bottom.jsp"/>
 </body>
