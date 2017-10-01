@@ -200,6 +200,51 @@ public class BoardDAO {
 	}
 
 	
+	//답변글을 저장하는 메소드
+	public void reInsertBoard(BoardBean bean) {
+	    getCon();
+	    
+	    
+	    //빈클래스에 넘어오지 않았던 데이터들을 초기화 해주어야 합니다.
+	  		int ref=bean.getRef(); //글그룹을 의미 = 쿼리를 실행시켜서 가장큰 ref 값을 자져온 후  +1을 더해주면됨
+	  		int re_step=bean.getRe_step(); //새글이기에 = 부모글
+	  		int re_level=bean.getRe_level(); 
+	  		try{
+	  			
+	  			String levelSql="update board set re_level =re_level+1 where ref=? and re_level > ? ";
+	  			pstmt =con.prepareStatement(levelSql);
+	  			pstmt.setInt(1, ref);
+	  			pstmt.setInt(2, re_level);
+	  			pstmt.executeUpdate();
+	  			
+	  			
+	  			//데이터를 삽입하는 쿼리
+	  		String sql =" insert into BOARD (NUM, WRITER, EMAIL, SUBJECT, PASSWORD, REG_DATE, REF, ";
+	  			   sql +="	RE_STEP, RE_LEVEL, READCOUNT, CONTENT) "; 
+	  			   sql +=" values(board_seq.NEXTVAL, ? ,? , ?, ?, sysdate, ?, ?, ? , 0, ? ) ";
+	  			pstmt=con.prepareStatement(sql);
+	  			//?에 값을 맵핑	  	
+	  			pstmt.setString(1, bean.getWriter());
+	  			pstmt.setString(2, bean.getEmail());
+	  			pstmt.setString(3, bean.getSubject());
+	  			pstmt.setString(4, bean.getPassword());
+	  			pstmt.setInt(5, ref);
+	  			pstmt.setInt(6, re_step+1); //기존 부모글에 스텝보다 1을 증가
+	  			pstmt.setInt(7, re_level+1); // 기존 부모글에 스텝보다 1을 증가
+	  			pstmt.setString(8, bean.getContent());
+	  			//쿼리를 실행하시오
+	  			pstmt.executeUpdate();
+	  		}catch(Exception e){
+	  			e.printStackTrace();
+	  		}finally{
+	  			//자원 반납
+	  			closed();
+	  		}
+	  		
+	  		
+	}
+
+	
 	
 	
 	
