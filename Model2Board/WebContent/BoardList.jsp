@@ -16,7 +16,7 @@
 	  
 		</h2>
 		<p class="text-right">
-		<input type="button" value="글쓰기"  onclick="location.href='BoardWrite.jsp'"  class="btn btn-warning">
+		<input type="button" value="글쓰기"  onclick="location.href='BoardWriteForm.jsp'"  class="btn btn-warning">
 		</p>
 		<div class="table-responsive">
 		<table class="table table-bordered table-striped" >
@@ -33,7 +33,7 @@
 			
 				 <tr>
 			 		<td>${cnumber }</td>
-			 		<td><a href="BoardInfo.jsp?num=${bean.num}" >
+			 		<td><a href="BoardInfo.do?num=${bean.num}" >
 			 		 <c:if test="${ bean.re_step >1}">
 			 		 <c:forEach begin="${bean.re_step }"  end="${(bean.re_step -1)*5 }" var="j">
 			 		 	&nbsp;
@@ -48,9 +48,7 @@
 			 	</tr>
 			 <c:set var="cnumber" value='${cnumber-1 }' />
 			 </c:forEach>
-			 
-
-			
+		
 			<tr>
 				<td colspan="5" class="text-center">
 

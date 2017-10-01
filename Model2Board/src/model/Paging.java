@@ -80,7 +80,12 @@ public class Paging {
 
    public void paginHtml(String url){
    	String html= "<nav><ul class='pagination'>";	
-   	//이전이라는 링크를 만들건지 파악
+   	//처음
+	if(startPage >pageSize){
+   		html +="<li><a href='"+url+"?pageNum="+1+"' aria-label='Previous'><span aria-hidden='true'>"
+   				+ "  처음</span></a></li>";
+   	}
+	//이전이라는 링크를 만들건지 파악
    	if(startPage >pageSize){
    		html +="<li><a href='"+url+"?pageNum="+prev+"' aria-label='Previous'><span aria-hidden='true'>"
    				+ "  &laquo;</span></a></li>";
@@ -98,6 +103,12 @@ public class Paging {
    	if(endPage < pageCount ){
    		html +="<li><a href='"+url+"?pageNum="+next+"' aria-label='next'><span aria-hidden='true'>"
    				+ "  &raquo;</span></a></li>";
+   	}
+   	
+   	//다음 이라는 링크를 만들건지 파악
+   	if(endPage < pageCount ){
+   		html +="<li><a href='"+url+"?pageNum="+pageCount+"' aria-label='next'><span aria-hidden='true'>"
+   				+ "  마지막</span></a></li>";
    	}
    	
 	html +="</ul></nav>";
