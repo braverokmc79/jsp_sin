@@ -33,7 +33,7 @@
 			
 				 <tr>
 			 		<td>${cnumber }</td>
-			 		<td><a href="BoardInfo.do?num=${bean.num}" >
+			 		<td><a href="BoardInfoControl.do?num=${bean.num}" >
 			 		 <c:if test="${ bean.re_step >1}">
 			 		 <c:forEach begin="${bean.re_step }"  end="${(bean.re_step -1)*5 }" var="j">
 			 		 	&nbsp;
