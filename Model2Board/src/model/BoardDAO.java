@@ -305,6 +305,25 @@ public class BoardDAO {
 	}
 
 	
+	public void deleteBoard(int num) {
+		 getCon();
+		 
+		 try{
+			 //3
+			 String sql ="delete from board where num=?";
+			 pstmt=con.prepareStatement(sql);
+			 //?
+			 pstmt.setInt(1, num);
+			 //4
+			 pstmt.executeUpdate();
+			 //5
+		 }catch(Exception e){
+			 e.printStackTrace();
+		 }
+	}
+
+	
+	
 	
 	
 	

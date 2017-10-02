@@ -11,7 +11,10 @@
 <c:if test="${msg != null  || param.msg != null}">
 	<c:if test="${param.msg =='complete'}">
 		<c:set var="msg" value="수정이 완료 되었습니다." />
-	</c:if>	
+	</c:if>
+	<c:if test="${msg =='delete'}">
+		<c:set var="msg" value="삭제시 비밀번호가 틀렸습니다." />
+	</c:if>		
 	<script type="text/javascript">
 	 alert("${msg}");
 	 //파라미터 제거
