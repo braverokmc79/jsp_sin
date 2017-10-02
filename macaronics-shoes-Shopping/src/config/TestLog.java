@@ -14,10 +14,11 @@ import org.apache.logging.log4j.Logger;
 @WebServlet("/TestLog")
 public class TestLog extends HttpServlet {
 
-	public static Logger logger2 = LogManager.getFormatterLogger(TestLog.class);
+	private static Logger logger2 = LogManager.getFormatterLogger(TestLog.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		final Logger logger = LogManager.getLogger(TestLog.class);
 
 		logger.debug("debug, servlet! {}", "debug- aaa");
