@@ -239,14 +239,48 @@ public class BoardDAO {
 	  		}finally{
 	  			//자원 반납
 	  			closed();
-	  		}
-	  		
-	  		
+	  		} 		
 	}
 
 	
 	
 	
+	//조회수를 증가하지 않는 하나의 게시글을 리턴하는 메소드
+	public BoardBean getOuneUpdateBoard(int num){
+		
+		getCon();
+		BoardBean bean =new BoardBean();
+		try{
+
+			//한게시글에 대한 정보를 리턴해주는 쿼리를 작성
+			String sql ="select * from board where num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			//쿼리실행 후 결과를 리턴
+			rs =pstmt.executeQuery();
+			if(rs.next()){//하나의 게시글이 존재 한다면
+				bean.setNum(rs.getInt("num"));
+				bean.setWriter(rs.getString("WRITER"));
+				bean.setEmail(rs.getString("EMAIL"));
+				bean.setSubject(rs.getString("SUBJECT"));
+				bean.setPassword(rs.getString("PASSWORD"));
+				bean.setReg_date(rs.getDate("REG_DATE").toString());
+				bean.setRef(rs.getInt("ref"));
+				bean.setRe_step(rs.getInt("RE_STEP"));
+				bean.setRe_level(rs.getInt("RE_LEVEL"));
+				bean.setReadcount(rs.getInt("READCOUNT"));
+				bean.setContent(rs.getString("CONTENT"));
+				//패키징한 데이터를 벡터에 저장
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+		return bean;
+	}
+
 	
 	
 	
