@@ -282,6 +282,31 @@ public class BoardDAO {
 	}
 
 	
+	//하나의 게시글을 수정하는 메소드
+	public void updateBoard(int num, String subject, String content) {	
+		//데이터베이스연결
+		getCon();
+		try{
+			//3.쿼리준비 쿼리실행할객체 선언
+			String sql="update board set subject =?, content=? where num=?";
+			pstmt =con.prepareStatement(sql);
+			//?에 값을 대입
+			pstmt.setString(1, subject);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, num);
+			//4.쿼리실행
+			pstmt.executeUpdate();
+			//5.자원 반납
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			closed();
+		}
+	}
+
+	
+	
+	
 	
 	
 	

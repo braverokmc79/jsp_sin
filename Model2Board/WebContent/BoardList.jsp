@@ -8,7 +8,17 @@
 </head>
 <body>
 <!-- 게시글 보기에 카운터링을 설정하기위한 변수들을 선언  -->
+<c:if test="${msg != null  || param.msg != null}">
+	<c:if test="${param.msg =='complete'}">
+		<c:set var="msg" value="수정이 완료 되었습니다." />
+	</c:if>	
+	<script type="text/javascript">
+	 alert("${msg}");
+	 //파라미터 제거
+	 history.replaceState({}, null, location.pathname);
+	</script>
 
+</c:if>
 <div class="row">
 	<div class="col-xs-2"></div>
 	<div class="col-xs-8 col-md-8">
@@ -51,8 +61,6 @@
 		
 			<tr>
 				<td colspan="5" class="text-center">
-
-			
 
 				
 <!-- 페이지징 처리 호출 -->

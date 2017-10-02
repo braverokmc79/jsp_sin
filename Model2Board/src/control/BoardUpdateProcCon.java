@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,10 +39,27 @@ public class BoardUpdateProcCon extends HttpServlet {
 		String content=request.getParameter("content");
 		
 		//password 값과 pass 값을 비교해야 합니다.
-		
+		if(password.equals(pass)){ //패스워드가 같다면 데이터를 수정
+			BoardDAO bdao =new BoardDAO();
+			bdao.updateBoard(num, subject, content);
+			
+			//수정이 완료되었다면  전체 게시글보기로 이동
+			
+			//request.setAttribute("msg", "");
+			response.sendRedirect("BoardListCon.do?msg=complete");
+			//RequestDispatcher rd=request.getRequestDispatcher("BoardListCon.do");
+		   // rd.forward(request, response);	
+		}else{
+			//비밀번호가 틀렸다면 이전 페이지로 이동
+			request.setAttribute("msg", "비밀번호가 맞지 않습니다.");
+			RequestDispatcher rd=request.getRequestDispatcher("BoardListCon.do");
+		    rd.forward(request, response);			
+			//response.sendRedirect("BoardListCon.do");
+		}
 		
 		
 	}
+	
 	
 	
 }

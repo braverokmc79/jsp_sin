@@ -47,6 +47,14 @@ public class BoardListCon extends HttpServlet {
 		Vector<BoardBean> v =bdao.getAllBoard(paging.getStartRow(), paging.getEndRow());
 
 		
+		//수정시
+		String msg=(String)request.getAttribute("msg");
+		if(request.getParameter("msg")!=null){
+			msg=request.getParameter("msg");
+		}
+		request.setAttribute("msg", msg);
+		
+		
 		/////// BoardList.jsp 쪽으로 request 객체에 담아서 넘겨줌
 		request.setAttribute("v",v);
 		request.setAttribute("paging", paging);
