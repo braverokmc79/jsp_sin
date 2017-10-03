@@ -116,12 +116,12 @@
 
 
 
-				<Context docBase="macaronics-shoes-Shopping" path="/macaronics-shoes-Shopping" reloadable="true" source="org.eclipse.jst.jee.server:macaronics-shoes-Shopping">
+				<Context docBase="macaronics-shoes-Shopping" path="/" reloadable="true" source="org.eclipse.jst.jee.server:macaronics-shoes-Shopping">
 					<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxWait="5000" name="jdbc/pool" password="1111" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="system"/>
 			  </Context>
 			  
 			  
-			</Host>
+			<Context docBase="csrfguard-test" path="/csrfguard-test" reloadable="true" source="org.eclipse.jst.jee.server:csrfguard-test"/><Context docBase="o2_OWASP-CSRFGuard" path="/o2_OWASP-CSRFGuard" reloadable="true" source="org.eclipse.jst.jee.server:o2_OWASP-CSRFGuard"/></Host>
 
 
 		</Engine>
