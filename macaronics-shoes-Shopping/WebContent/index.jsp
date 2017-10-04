@@ -22,7 +22,7 @@ Mybais 연결 테스트
 <%
 	
 	BoardListTest test =new BoardListTest();
-	out.print(test.memberList().toString());
+	//out.print(test.memberList().toString());
 %>
 
 
@@ -48,6 +48,8 @@ Welcome to the OWASP CSRFGuard Test Application! Where would you like to go?
 <ul>
 	<li><a href="session.jsp?action=invalidate">Invalidate Session</a>
 </ul>
+
+
 
 
 <script src="JavaScriptServlet"></script>
