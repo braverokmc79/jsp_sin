@@ -43,7 +43,7 @@
                 
                 <c:choose>
                   <c:when test="${empty sessionScope.loginUser}">
-	                  <li class="hidden-xs"><a href="MacaronicsServlet?command=login_form">회원가입</a></li>
+	                  <li class="hidden-xs"><a href="MacaronicsServlet?command=join_form">회원가입</a></li>
 	                  <li><a href="" data-toggle="modal" data-target="#login-modal">로그인</a></li>
                   </c:when>
                   <c:otherwise>

@@ -667,7 +667,7 @@ img {
 /* ALL SECTION */
 /*scrol to top*/
 .scrollToTop {
-  bottom: 60px;
+  bottom: 100px;
   color: #fff;
   display: none;
   font-size: 23px;
@@ -683,8 +683,9 @@ img {
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
   width: 50px;
-  z-index: 999;
+  z-index: 9999999;
 }
+
 
 .scrollToTop:hover,
 .scrollToTop:focus {

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.controll.IndexAction;
+import net.macaronics.web.controll.JoinFormAction;
 import net.macaronics.web.controll.ProductDetailAction;
 import net.macaronics.web.controll.ProductKindAction;
 import net.macaronics.web.controll.action.Action;
@@ -32,7 +33,7 @@ public class ActionFactory {
 		if(command.equals("index")) action=new IndexAction();  
 		else if(command.equals("product_detail")) action=new ProductDetailAction();
 		else if(command.equals("category")) action=new ProductKindAction();
-		
+		else if(command.equals("join_form"))action=new JoinFormAction();
 		return action;
 	}
 	

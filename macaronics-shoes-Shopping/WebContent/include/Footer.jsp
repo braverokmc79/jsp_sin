@@ -1,25 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <!-- footer -->  
-  <footer id="aa-footer">
-    <!-- footer bottom -->
 
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p><a href="http://macaronics.net/">Macaronics.net</a></p>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
+
+
   
+     <!-- FOOTER -->
+<nav class="avbar navbar-inverse navbar-fixed-bottom" style="margin-top: 50px; ">
+  <div class="container text-center" style="color:#fff;">
+  <p>&nbsp;</p>
+   <p ><a href="http://macaronics.net/" style="color:#fff;">Macaronics.net</a></p>  
+    <p>&nbsp;</p>
+  </div>
+</nav>
+
   
-  </footer>
-  <!-- / footer -->
 
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
