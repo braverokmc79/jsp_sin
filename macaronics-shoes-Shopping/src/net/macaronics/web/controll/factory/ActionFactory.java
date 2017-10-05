@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.controll.IndexAction;
+import net.macaronics.web.controll.ProductDetailAction;
 import net.macaronics.web.controll.action.Action;
 
 public class ActionFactory {
@@ -28,6 +29,7 @@ public class ActionFactory {
 		logger.info("ActionFactory : {}  ", command);
 		
 		if(command.equals("index")) action=new IndexAction();  
+		else if(command.equals("product_detail")) action=new ProductDetailAction();
 		
 		return action;
 	}
