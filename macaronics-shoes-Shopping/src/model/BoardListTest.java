@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import config.MybatisService;
-
+//Test
 public class BoardListTest {
 
 	SqlSession session=MybatisService.getFactory().openSession();

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/test.do")
-public class MainController extends HttpServlet {
+public class TestController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

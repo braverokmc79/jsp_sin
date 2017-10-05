@@ -19,7 +19,7 @@
     <!-- price picker slider -->
     <link rel="stylesheet" type="text/css" href="../dailyShop/css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="../dailyShop/css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="../dailyShop/css/theme-color/bridge-theme.css" rel="stylesheet">
     <!-- <link id="switcher" href="../dailyShop/css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
     <link href="../dailyShop/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">

@@ -1,5 +1,6 @@
 package model;
 
+//Test
 public class BoardBean {
 	private int num;
 	private String writer;

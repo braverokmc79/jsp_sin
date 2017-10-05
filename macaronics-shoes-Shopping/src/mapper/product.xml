@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+	<!-- id="태그의 식별자" resultType="sql 명령어의 리턴타입(레코드의 자료형)" 샵{변수} => 입력매개변수 -->
+
+	<!-- 최신상품 -->
+	<select id="listNewProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ select * from NEW_PRO_VIEW ]]>
+	</select>
+
+	<!-- 베스트상품 -->
+	<select id="listBestProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ select * from BEST_PRO_VIEW ]]>
+	</select>
+
+	<!-- 선택된상품 -->
+	<select id="getProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ select * from TBL_PRODUCT where pseq =#{pseq} ]]>
+	</select>
+
+	<!-- 종류별 상품 -->
+	<select id="listKindProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ select * from TBL_PRODUCT where kind =#{kind} ]]>
+	</select>
+
+	<!-- 메인 배너 상품 -->
+	<select id="bannerProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ 			
+		select * from (
+			select rownum as num , pseq, name, price2, image from(
+			select  pseq, name, price2, image
+			from tbl_product where kind=5 order by indate desc			
+			) ) where num  <= 4 
+		]]>
+	</select>
+
+	<!-- 메인 배너 아래  세일 상품 5개 -->
+	<select id="mainOnSale" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ 			
+		select * from (
+			select rownum as num , pseq, name, price2, image from(
+			select  pseq, name, price2, image
+			from tbl_product where kind=5 order by indate desc			
+			) ) where num  >= 4 and num < 9
+		]]>
+	</select>
+
+</mapper>
+
+
+	
+	
+	

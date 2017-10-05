@@ -26,7 +26,7 @@ public class EncodingFilter implements Filter {
 		// place your code here
 		//선처리할 코드 
 		request.setCharacterEncoding(charset);
-		logger.info("필터가 실행되었습니다.");
+		//logger.info("필터가 실행되었습니다.");
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
