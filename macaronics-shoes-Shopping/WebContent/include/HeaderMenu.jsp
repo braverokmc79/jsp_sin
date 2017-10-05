@@ -76,7 +76,7 @@
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.jsp">
+                <a href="MacaronicsServlet?command=index">
                   <span class="fa fa-shopping-cart"></span>
                   <p>Macaronics<strong> Shop</strong> <span>Macaronics shoes</span></p>
                 </a>
