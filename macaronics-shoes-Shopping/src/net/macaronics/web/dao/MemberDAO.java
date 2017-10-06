@@ -1,5 +1,8 @@
 package net.macaronics.web.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,7 +45,6 @@ public class MemberDAO {
 		return result ==0 ? false :true;
 	}
 	
-	
 	//회원 정보 불러오기
 	public MemberVO getMember(String id){
 		MemberVO memberVO=new MemberVO();
@@ -72,7 +74,23 @@ public class MemberDAO {
 		}
 	}
 	
-	
+	//아이디와 비밀번화 체크
+	public boolean checkIdAndPwd(String id, String pwd){
+		int confirm=0;
+		try{
+			sqlSession=MybatisService.getFactory().openSession();
+			Map<String, Object> map =new HashMap<>();
+			map.put("id", id);
+			map.put("pwd",pwd);
+			confirm=sqlSession.selectOne("member.checkIdAndPwd", map);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			MybatisService.sessionClose(sqlSession);
+		}
+		//0보다 크면 로그인 성공
+		return confirm >0 ? true :false;
+	}
 	
 }
 

@@ -24,6 +24,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</insert>
 	
+	
+	<!--  비밀번호 체크 --> 	
+	<select id="checkIdAndPwd" resultType="int">
+	<![CDATA[
+		select count(*) from TBL_MEMBER where id=#{id} and pwd=#{pwd}
+	]]>
+	</select>
 
 
 </mapper>
