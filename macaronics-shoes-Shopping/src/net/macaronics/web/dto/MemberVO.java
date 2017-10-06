@@ -2,20 +2,55 @@ package net.macaronics.web.dto;
 
 import java.sql.Timestamp;
 
-public class MemberVO {
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
-	private String id ;    
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.sun.istack.internal.NotNull;
+
+public class MemberVO {
+	@NotEmpty @Size(min=4, max=12)
+	private String id ; 
+	@NotEmpty @Size(min=6, max=20)
 	private String pwd ;   
-	private String name ;  
-	private String email ; 
+	@NotEmpty
+	private String pwdCheck;
+	
+	@NotEmpty @Size(min=2, max=12)
+	private String name ; 
+	
+	@NotEmpty @Email
+	private String email ;
+	
+	@NotNull @NotEmpty
 	private String zip_num;
+	
 	private String address ; 
+	@NotNull
 	private String address1;
+
 	private String address2;
+	
 	private String phone ;   
-	private String useyn ;   
+	private String useyn ; 
+	
+	@NotNull
 	private String ip  ;     
 	private Timestamp indate ;
+	
+	
+	public boolean isPassCheck(){
+		if(this.pwd.equals(this.pwdCheck)){
+			return false;
+		}
+		//패스워드가 일치하지 않으면 true
+		return true;
+	}
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -27,6 +62,12 @@ public class MemberVO {
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	public String getPwdCheck() {
+		return pwdCheck;
+	}
+	public void setPwdCheck(String pwdCheck) {
+		this.pwdCheck = pwdCheck;
 	}
 	public String getName() {
 		return name;
@@ -90,11 +131,13 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", zip_num=" + zip_num
-				+ ", address=" + address + ", address1=" + address1 + ", address2=" + address2 + ", phone=" + phone
-				+ ", useyn=" + useyn + ", ip=" + ip + ", indate=" + indate + "]";
+		return "MemberVO [id=" + id + ", pwd=" + pwd + ", pwdCheck=" + pwdCheck + ", name=" + name + ", email=" + email
+				+ ", zip_num=" + zip_num + ", address=" + address + ", address1=" + address1 + ", address2=" + address2
+				+ ", phone=" + phone + ", useyn=" + useyn + ", ip=" + ip + ", indate=" + indate + "]";
 	}
 	
 	
+	
+
 	
 }

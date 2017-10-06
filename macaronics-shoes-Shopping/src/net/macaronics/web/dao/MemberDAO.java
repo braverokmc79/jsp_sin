@@ -9,7 +9,7 @@ import net.macaronics.web.dto.MemberVO;
 
 public class MemberDAO {
  
-	private SqlSession sqlSession=MybatisService.getFactory().openSession();
+	private SqlSession sqlSession;
 	
 	private static Logger logger= LogManager.getLogger(MemberDAO.class);
 	
@@ -27,18 +27,19 @@ public class MemberDAO {
 	
 	
 	//유저아이디 체크
-	public int confirm(String userid){
+	public boolean confirm(String id){
 		int result=0;
 		//result 값이 0 보다 크면  아이디 중복
-		try{	
-			result=sqlSession.selectOne("member.confirm", userid);
+		try{
+			sqlSession=MybatisService.getFactory().openSession();
+			result=sqlSession.selectOne("member.confirm", id);
 			logger.info(" confirm result - {} ", result);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			MybatisService.sessionClose(sqlSession);
 		}
-		return result;
+		return result ==0 ? false :true;
 	}
 	
 	
@@ -46,6 +47,7 @@ public class MemberDAO {
 	public MemberVO getMember(String id){
 		MemberVO memberVO=new MemberVO();
 		try{
+			sqlSession=MybatisService.getFactory().openSession();
 			memberVO=sqlSession.selectOne("member.getMember", id);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -59,10 +61,13 @@ public class MemberDAO {
 	//회원 등록
 	public void insertMember(MemberVO memberVO){
 		try{
+			sqlSession=MybatisService.getFactory().openSession();
 			sqlSession.insert("member.insertMember", memberVO);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
+		   //select 이외의 문장은 commit()을 해야 함		
+			sqlSession.commit();
 			MybatisService.sessionClose(sqlSession);
 		}
 	}

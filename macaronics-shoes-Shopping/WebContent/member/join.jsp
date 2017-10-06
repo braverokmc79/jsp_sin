@@ -72,13 +72,14 @@
 	  <div >		
 	 	<p>&nbsp;</p>
 		
-		<form class="form-horizontal" action="/member/joinproc.jsp" method="post">
+		<csrf:form class="form-horizontal" action="/member/joinproc.jsp" method="post">
 		 <div class="form-group">
 		 	<div class="col-sm-2 control-label">
 		 		<label for="id">아이디</label>
 		 	</div>
 		 	<div class="col-sm-6 text-left">
-		 		<input type="text" class="form-control" name="id" id="id" value="macaronics">
+		 		<input type="text" class="form-control" name="id" id="id" value="${member.id }">
+		 		<p style="color:red;">${idError}</p>
 		 	</div>
 		 </div>
 		 
@@ -88,6 +89,7 @@
 		 	</div>
 		 	<div class="col-sm-6">
 		 		<input type="password" class="form-control" name="pwd" id="pwd">
+		 		<p style="color:red;">${pwdError}</p>
 		 	</div>
 		 </div>
 		 
@@ -97,6 +99,7 @@
 		 	</div>
 		 	<div class="col-sm-6">
 		 		<input type="password" class="form-control" name="pwdCheck" id="pwdCheck">
+		 		<p style="color:red;">${pwdCheckError}</p>
 		 	</div>
 		 </div>
 		
@@ -105,7 +108,8 @@
 		 		<label id="name">이름</label>
 		 	</div>
 		 	<div class="col-sm-6">
-		 		<input type="text" class="form-control" name="name" id="name" value="홍길동">
+		 		<input type="text" class="form-control" name="name" id="name" value="${member.name }">
+		 		<p style="color:red;">${nameError}</p>
 		 	</div>
 		 </div>		 
 		 
@@ -114,7 +118,8 @@
 		 		<label id="email">이메일</label>
 		 	</div>
 		 	<div class="col-sm-6">
-		 		<input type="email" class="form-control" name="email" id="email" value="macaronics@gmail.com">
+		 		<input type="email" class="form-control" name="email" id="email" value="${member.email }">
+		 		<p style="color:red;">${emailError}</p>
 		 	</div>
 		 </div>	
 	 
@@ -124,13 +129,15 @@
 		 		<label id="zip_num">우편번호</label>
 		 	</div>
 		 	<div class="col-sm-3">
-		 	 <input type="text" id="sample6_postcode" placeholder="우편번호"  name="zip_num" class="form-control" value="06267">
+		 	 <input type="text" id="sample6_postcode" placeholder="우편번호"  name="zip_num" class="form-control" value="${member.zip_num }">
+			<p style="color:red;">${zip_numError}</p>
 			</div>
 			<div class="col-sm-3">
 			<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary">
 		 
 		 	</div>
 		 </div>	
+		 
 		
 			<div class="form-group" >
 			 <div class="col-sm-2 control-label">
@@ -138,47 +145,62 @@
 		 	 </div>
 		 	 <div class="col-sm-6">
 			    <input type="text" id="sample6_address" 
-			    placeholder="주소"  name="address1"   class="form-control" value="서울 강남구 강남대로 238 (도곡동, 스카이쏠라빌딩)">
+			    placeholder="주소"  name="address1"   class="form-control" value="${member.address1 }">
+			   
 			 </div>   
 		   </div>
+	 
+	 	 <div class="form-group">
+			 <div class="col-sm-12">
+			  <p style="color:red;">${zip_numError}</p>
+			  </div>
+		  </div>	
+	 
 	 
 		  <div class="form-group"> 
 		  	 <div class="col-sm-2 control-label">
 		 		<label id="address1">상세주소</label>
 		 	 </div>
 		 	 <div class="col-sm-6"> 
-		       <input type="text" id="sample6_address2" placeholder="상세주소" name="address2"   class="form-control" value="256-32">
+		       <input type="text" id="sample6_address2" placeholder="상세주소" name="address2"   class="form-control" value="${member.address2 }">
 		       </div>
 		  </div>
 		 
-	
+		 <div class="form-group">
+		 	<div class="col-sm-2"></div>
+			 <div class="col-sm-8">
+			  <p style="color:red;" class="text-center">${addressError}</p>
+			  </div>
+		</div>	
 
 		  <div class="form-group">
 		 	<div class="col-sm-2 control-label">
 		 		<label id="phone">전화번호</label>
 		 	</div>
 		 	<div class="col-sm-6">
-		 		<input type="text" class="form-control" name="phone" id="phone" value="010-256-3332">
+		 		<input type="text" class="form-control" name="phone" id="phone" value="${member.phone }">
 		 	</div>
 		 </div>
 		 
-		 
-		 <input type="hidden" name="ip" value="${GetIpAddress.getIp()}">
 		 <div class="form-group" >
 		    <div class="col-sm-12  text-center">
+		    <input type="hidden" name="ip" value="${GetIpAddress.getIp()}">
 		 	<input type="submit" value="회원가입" class="btn btn-success">
 		 	<input type="reset" value="취소" class="btn btn-warning">
 		 	</div>
 		 </div>
 		
 		
-		</form> 
+		</csrf:form> 
 	  </div>
 	</div>
 
 </div>
 
-
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
 
 
 
