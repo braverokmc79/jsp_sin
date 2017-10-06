@@ -104,7 +104,7 @@
 
 
 
-			</Host>
+			<Context docBase="RSATest" path="/RSATest" reloadable="true" source="org.eclipse.jst.jee.server:RSATest"/></Host>
 
 
 		</Engine>
