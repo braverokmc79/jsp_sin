@@ -19,7 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertMember">
 	<![CDATA[
 	INSERT  INTO TBL_MEMBER (ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE,  IP) 
-	VALUES(#{id}, #{pwd}, #{name}, #{email}, #{zip_num}, #{address}, #{phone}, #{ip})
+	VALUES(#{id}, PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd}), #{name}, 
+	#{email}, #{zip_num}, #{address}, #{phone}, #{ip})
 	
 	]]>
 	</insert>
@@ -28,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--  비밀번호 체크 --> 	
 	<select id="checkIdAndPwd" resultType="int">
 	<![CDATA[
-		select count(*) from TBL_MEMBER where id=#{id} and pwd=#{pwd}
+		select count(*) from TBL_MEMBER where id=#{id} and pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd})
 	]]>
 	</select>
 

@@ -92,6 +92,7 @@ public class MemberDAO {
 		return confirm >0 ? true :false;
 	}
 	
+	
 }
 
 
