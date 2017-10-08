@@ -65,6 +65,19 @@ public class ProductDAO {
 	}
 	
 	
+	public Object middleOnSale() {
+		return commonProduct("product.middleOnSale", null);
+	}
+	
+	
+	//여성 운동화
+	public Object femaleProduct() {
+		return commonProduct("product.femaleProduct", null);
+	}
+	
+	
+	
+	
 	//리스트 상품 리스트   공통
 	public List<ProductVO> commonProduct(String mybatisSql , String param){
 		List<ProductVO> list =new ArrayList<>();
@@ -79,7 +92,6 @@ public class ProductDAO {
 		}
 		return list; 
 	}
-	
 
 	
 	

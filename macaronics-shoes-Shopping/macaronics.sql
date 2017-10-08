@@ -32,9 +32,6 @@ grant connect, resource, create view to macaronics;
 
 
 
-
-
-
 -- 관리자 테이블 생성
 create table tbl_admin(
 	
@@ -228,7 +225,7 @@ REFERENCES tbl_member (id) on delete CASCADE ;
 -- 카트 뷰 생성 
 create or replace view cart_view
 as
-select o.cseq, o.id, o.pseq, m.name mname, p.name pname, 
+select o.cseq, o.id, o.pseq, m.name mname, p.name pname, p.image,
 o.quantity, o.indate, p.price2, o.result 
 from tbl_cart o, tbl_member m, tbl_product p 
 where o.id = m.id and o.pseq = p.pseq

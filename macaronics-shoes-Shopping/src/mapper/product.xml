@@ -25,6 +25,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[ select * from TBL_PRODUCT where kind =#{kind} ]]>
 	</select>
 
+
+	<!-- 여성 운동화 3 -->
+	<select id="femaleProduct" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ 		
+		select * from (
+			select rownum as num , pseq, name, price2, image from(
+			select  pseq, name, price2, image
+			from tbl_product where kind=2 order by indate desc			
+			) ) where num  <= 3 
+		 	]]>
+	</select>
+
+
 	<!-- 메인 배너 상품 -->
 	<select id="bannerProduct" resultType="net.macaronics.web.dto.ProductVO"> 
 		<![CDATA[ 			
@@ -46,6 +59,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			) ) where num  >= 4 and num < 9
 		]]>
 	</select>
+	
+		<!-- 메인 배너 아래  세일 상품 5개 -->
+	<select id="middleOnSale" resultType="net.macaronics.web.dto.ProductVO"> 
+		<![CDATA[ 			
+		select * from (
+			select rownum as num , pseq, name, price2, image from(
+			select  pseq, name, price2, image
+			from tbl_product where kind=5 order by indate desc			
+			) ) where num  >= 1 and num < 12
+		]]>
+	</select>
+	
+	
 
 </mapper>
 

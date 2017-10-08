@@ -1763,7 +1763,7 @@ img {
   width: 100%;
 }
 #aa-catg-head-banner .aa-catg-head-banner-area {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1); 
   bottom: 0;
   left: 0;
   position: absolute;
@@ -1787,8 +1787,16 @@ img {
 }
 #aa-catg-head-banner .aa-catg-head-banner-area .aa-catg-head-banner-content .breadcrumb {
   border-radius: 0;
-  background-color: transparent;
+ /*  background-color: transparent; */
 }
+
+#aa-catg-head-banner img{
+	 box-shadow: 5px 5px 5px 0px lightgray;
+	 margin-bottom: 5px;
+}
+
+
+
 #aa-catg-head-banner .aa-catg-head-banner-area .aa-catg-head-banner-content .breadcrumb a {
   color: white;
 }

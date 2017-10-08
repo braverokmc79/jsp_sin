@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
    <!-- wpf loader Two -->
     <div id="wpf-loader-two">          
       <div class="wpf-loader-two-inner">
@@ -87,40 +87,35 @@
              
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
+                <a class="aa-cart-link" href="MacaronicsServlet?command=cart_list">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">장바구니 내역</span>
-                  <span class="aa-cart-notify">2</span>
+                  <c:if test="${loginUser!=null }">
+                  	 <span class="aa-cart-notify">${cartList.size() }</span>
+                  </c:if>
                 </a>
+                
+         
+            <c:if test="${loginUser!=null }">   
+               <c:if test="${cartList.size() >0 }">
                 <div class="aa-cartbox-summary">
                   <ul>
+                  <c:forEach items="${ cartList }" var="cart">
                     <li>
-                      <a class="aa-cartbox-img" href="#"><img src="../dailyShop/img/woman-small-2.jpg" alt="img"></a>
+                      <a class="aa-cartbox-img" href="#"><img src="images/${cart.image }" alt="img"></a>
                       <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
+                        <h4><a href="#">${cart.pname }</a></h4>
+                        <p><fmt:formatNumber type="currency" value="${cart.price2 }" /></p>
                       </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+                      <a class="aa-remove-product" href="#"  onclick="go_cart_ajax_delete(${cart.cseq})"><span class="fa fa-times"></span></a>
                     </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="../dailyShop/img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
+                   </c:forEach>
                   </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">주문하기</a>
                 </div>
+                </c:if> 
+              </c:if>
+              
               </div>
               
               

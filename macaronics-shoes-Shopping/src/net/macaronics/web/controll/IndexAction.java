@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.controll.action.Action;
+import net.macaronics.web.controll.common.CommonList;
 import net.macaronics.web.dao.ProductDAO;
 import net.macaronics.web.dto.ProductVO;
 
@@ -29,7 +30,10 @@ public class IndexAction implements Action{
 	  request.setAttribute("bestProductList", productDAO.listBestProduct()); //베스트상품	 
 	  request.setAttribute("bannerProduct", productDAO.bannerProduct()); //배너 상품
 	  request.setAttribute("mainOnSale", productDAO.mainOnSale());//메인 배너 아래  세일 상품 5개
-
+	  request.setAttribute("middleOnSale", productDAO.middleOnSale()); //세일상품 12
+	  
+	  request.setAttribute("femaleProduct", productDAO.femaleProduct());//여성운동화
+	  
 	  //ProductVO pro =productDAO.getProduct("1"); 
 	  //logger.info("IndexAction  {}",pro.toString() );
 	  

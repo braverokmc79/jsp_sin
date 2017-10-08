@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cart">
+	<!-- id="태그의 식별자" resultType="sql 명령어의 리턴타입(레코드의 자료형)" 샵{변수} => 입력매개변수 -->
+
+	<insert id="insertCart">
+	 insert into tbl_cart(cseq, id, pseq, quantity) values( cart_seq.nextval, #{id} , #{pseq} , #{quantity})
+	</insert>
+
+	<select id="listCart" resultType="net.macaronics.web.dto.CartVO">
+		select * from CART_VIEW where id=#{id} order by cseq desc
+	</select>
+	
+	<delete id="deleteCart">
+		delete tbl_cart where cseq=#{cseq} and id=#{id}
+	</delete>
+
+</mapper>
+
+
+	
+	
+	

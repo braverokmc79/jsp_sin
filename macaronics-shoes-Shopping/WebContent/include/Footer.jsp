@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 
 
-
+<div style="margin-bottom: 150px;">
+&nbsp;
+</div>
   
      <!-- FOOTER -->
 <nav class="avbar navbar-inverse navbar-fixed-bottom" style="margin-top: 50px; ">
@@ -64,6 +66,99 @@
   <script type="text/javascript" src="../dailyShop/js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="../dailyShop/js/custom.js"></script> 
+
+
+<script>
+//장바구니 에 담기
+
+function go_cart(){
+	var loginUser='${sessionScope.loginUser}';
+	if(loginUser==null || loginUser==''){
+		alert("로그인을 먼저 하세요.");
+		return;
+	}
+	if(document.formm.quantity.value==""){
+		alert("수량을 입력하여 주세요.");
+		document.formm.quantity.focus();
+	}else{
+		$("input[name=command]").val("cart_insert");
+		document.formm.submit();
+	
+	}
+	
+}
+
+$(function(){
+
+	
+	$(".cart-ajax").click(function(event){
+		event.preventDefault();
+		pseq=$(this).attr("data-pseq");
+		
+		$.ajax({
+			url:"MacaronicsServlet?command=cart_ajax",
+			type:"post",
+			dataType:"text",
+			data : {
+				pseq:pseq,
+				quantity:1
+			},
+			success:function(result){
+				
+				if($.trim(result)=='success'){
+					if(confirm("장바구니에 담았습니다. 장바구니로 이동하시겠습니까?")){
+						
+						location.href="/MacaronicsServlet?command=cart_list";
+					}		
+				}else{
+					alert($.trim(result));
+				}
+			}
+		});
+	});
+
+	
+
+});
+function go_cart_delete(cseq){
+	
+	if(confirm("정말 삭제하시겠습니까?")){
+		location.href="MacaronicsServlet?command=cart_delete&cseq="+cseq;		
+	}
+	
+}
+
+function go_cart_all_delete(){
+	
+	if(confirm("정말 삭제하시겠습니까?")){
+		document.form1.submit();
+	}
+	
+}
+
+function go_cart_ajax_delete(cseq){
+	
+	if(confirm("정말 삭제하시겠습니까?")){
+		
+		$.ajax({
+			url:"MacaronicsServlet?command=cart_delete_ajax",
+			type:"post",
+			data:{cseq:cseq},
+			success:function(result){
+				if($.trim(result)=='success'){
+					alert("삭제 했습니다.")
+					location.reload();
+				}				
+			}
+			
+		});
+		
+	}
+	
+}
+ 
+</script>
+
 
   </body>
 </html>

@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.controll.action.Action;
+import net.macaronics.web.controll.common.CommonList;
 import net.macaronics.web.controll.factory.ActionFactory;
 
 @WebServlet("/MacaronicsServlet")
@@ -27,6 +28,9 @@ public class MacaronicsServlet extends HttpServlet {
 	
 		ActionFactory af =ActionFactory.getInstance();
 		Action action =af.getAction(command);
+		
+		//공통 리스트 장바구니 목록
+		CommonList.getCommon(request);
 		
 		if(action!=null){
 			action.execute(request, response);

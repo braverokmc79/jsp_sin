@@ -34,25 +34,25 @@
               
                 <!-- Modal view content -->
                 <div class="col-md-7 col-sm-7 col-xs-12">
-                  <form action="">
+                  <form  name="formm" id="formm" action="MacaronicsServlet">
                   <div class="aa-product-view-content">
                     <h3>${productVO.name}</h3>
                     <div class="aa-price-block">
-                      <span class="aa-product-view-price"><fmt:formatNumber pattern="#,### 원" value="${productVO.price2}"/></span>
+                      <span class="aa-product-view-price"><fmt:formatNumber type="currency" value="${productVO.price2}"/></span>
                       
                     </div>
                    <p>${productVO.content}</p>
                     <h4>수량</h4>
                     <div class="aa-prod-view-size">
-                     <input type="text" name="quantity" value="1" >
+                     <input type="number" name="quantity" value="1"  min="1" max="100">
 					<input type="hidden" name="pseq" value="${productVO.pseq}">		
                     </div>
                     
-          
                     <div class="aa-prod-view-bottom">
-                      <a  class="aa-add-to-cart-btn" href="#" onclick="">장바구니에 담기</a>
+                      <input type="hidden" name="command" >
+                      
+                      <a  class="aa-add-to-cart-btn" href="#" onclick="go_cart()">장바구니에 담기</a>
                       <a class="aa-add-to-cart-btn" href="#"  >즉시구매</a>
-                      <a class="aa-add-to-cart-btn" href="#"  >취소</a>
                     </div>
                   </div>
                   
@@ -74,20 +74,16 @@
                         <li>
                           <figure>
                             <a class="aa-product-img" href="MacaronicsServlet?command=product_detail&pseq=${productVO.pseq}"><img src="images/${productVO.image}" alt="신상품 이미지" width="250" height="300"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>장바구니에 담기</a>
+                            <a class="aa-add-card-btn cart-ajax" href="#" data-pseq="${productVO.pseq}"><span class="fa fa-shopping-cart"></span>장바구니에 담기</a>
                             <figcaption>
                               <h4 class="aa-product-title"><a href="#">${productVO.name}</a></h4>
-                              <span class="aa-product-price"><fmt:formatNumber pattern="#,### 원" value="${productVO.price2}"/></span>
+                              <span class="aa-product-price"><fmt:formatNumber type="currency" value="${productVO.price2}"/></span>
                             </figcaption>
                           </figure>                          
-                          <div class="aa-product-hvr-content">
-                           <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                          </div>
+
                         </li>
                         <!-- start single product item -->
-                      </c:forEach> 
+              </c:forEach> 
                                                                                    
               </ul>     
            
@@ -98,6 +94,9 @@
     </div>
   </section>
   <!-- / product category -->
+
+
+
 
 
 
