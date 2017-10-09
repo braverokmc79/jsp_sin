@@ -68,10 +68,10 @@
               	   	  <td><fmt:formatNumber  type="currency"  value="${orderVO.price2*orderVO.quantity }"/></td>
               	   	  <c:choose>
               	   	   <c:when test='${orderVO.result=="1" }'>
-              	   	   	  진행중
+              	   	   	<td> 진행중</td>
               	   	   </c:when>
               	   	   <c:otherwise>
-              	   	        <span class="danger">처리완료</span> 
+              	   	        <td><span class="danger">처리완료</span></td> 
               	   	   </c:otherwise>
               	   	  </c:choose>
               	   	  

@@ -13,6 +13,7 @@ import net.macaronics.web.controll.JoinFormAction;
 import net.macaronics.web.controll.LogOutAction;
 import net.macaronics.web.controll.LoginFormAction;
 import net.macaronics.web.controll.MyPageAction;
+import net.macaronics.web.controll.OrderAllAction;
 import net.macaronics.web.controll.OrderDetailAction;
 import net.macaronics.web.controll.OrderInsertAction;
 import net.macaronics.web.controll.OrderListAction;
@@ -56,6 +57,7 @@ public class ActionFactory {
 		else if(command.equals("order_list")) action=new OrderListAction(); //주문처리 후 바로 보여지는 주문 목록페이지
 		else if(command.equals("mypage")) action=new MyPageAction(); //진행중인 주문내역
 		else if(command.equals("order_detail")) action=new OrderDetailAction(); //주문 상세 정보
+		else if(command.equals("order_all")) action=new OrderAllAction(); //총 주문 내역 보기
 		
 		return action;
 	}
