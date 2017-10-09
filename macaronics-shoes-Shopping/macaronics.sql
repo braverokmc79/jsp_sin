@@ -198,7 +198,7 @@ create table tbl_qna(
 	content VARCHAR2(3000), -- 문의 내용
 	reply VARCHAR2(3000),	-- 답변 내용
 	id VARCHAR2(20),		-- 작성자 아이디 member 테이블의 기본키인 id 컬럼
-	rep char(1) ,			-- 답변 유무  1:답변 무 2:답변 유
+	rep char(1) default '1',			-- 답변 유무  1:답변 무 2:답변 유
 	indate date default sysdate
 
 )TABLESPACE macaronics ;  

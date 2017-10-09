@@ -19,6 +19,10 @@ import net.macaronics.web.controll.OrderInsertAction;
 import net.macaronics.web.controll.OrderListAction;
 import net.macaronics.web.controll.ProductDetailAction;
 import net.macaronics.web.controll.ProductKindAction;
+import net.macaronics.web.controll.QnaListAction;
+import net.macaronics.web.controll.QnaViewAction;
+import net.macaronics.web.controll.QnaWriteAction;
+import net.macaronics.web.controll.QnaWriteFormAction;
 import net.macaronics.web.controll.action.Action;
 
 public class ActionFactory {
@@ -58,6 +62,11 @@ public class ActionFactory {
 		else if(command.equals("mypage")) action=new MyPageAction(); //진행중인 주문내역
 		else if(command.equals("order_detail")) action=new OrderDetailAction(); //주문 상세 정보
 		else if(command.equals("order_all")) action=new OrderAllAction(); //총 주문 내역 보기
+		else if(command.equals("qna_list")) action=new QnaListAction(); //질문 목록 보기
+		else if(command.equals("qna_write_form")) action=new QnaWriteFormAction(); //질문 폼으로 이동
+		else if(command.equals("qna_write")) action=new QnaWriteAction(); //질문 하기
+		else if(command.equals("qna_view")) action=new QnaViewAction(); //질문 게시글 상세 보기
+		
 		
 		return action;
 	}

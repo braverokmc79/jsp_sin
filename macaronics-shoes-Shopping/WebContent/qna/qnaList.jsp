@@ -30,33 +30,45 @@
           <div class="aa-product-catg-content">
           
             <div class="aa-product-catg-body">
-              <div class="table-responsive">
-              <table class="table table-striped">
-              	 <tr class="danger">
-              	   <th>상품명</th>
-              	   <th>수량</th>
-              	   <th>가격</th>
-              	   <th>주문일</th>
-              	   <th>진행상태</th>
-              	 </tr>
-              	 <tr>
-              	   <c:forEach items="${orderList}" var="orderVO">
-              	   	 <tr>
-              	   	  <td>${orderVO.pname}</td>
-              	   	  <td>${orderVO.quantity }</td>
-              	   	  <td><fmt:formatNumber type="currency"  value="${orderVO.price2*orderVO.quantity }"/></td>
-              	   	  <td><fmt:formatDate value="${orderVO.indate }" type="date" /></td>
-              	   	  <td>처리 진행 중</td>
-              	   	 </tr>
-              	   </c:forEach>
-              	 </tr>
-              	            
-              </table>
-              </div>
-                
+     			<h2>1:1 고객 게시판</h2>	
+                <h3>고객님의 질문에 대해서 운영자가  1:1 답변을 드립니다.</h3>
+        		<div class="table-responsive">
+        		<table class="table">
+        			<tr>
+        			  <th>번호</th>
+        			  <th>제목</th>
+        			  <th>등록일</th>
+        			  <th>답변 여부</th>
+        			</tr>
+        			<c:if test="${empty qnaList }" >
+        				<tr> 
+        					<td colspan="4" class="text-center" style="color:red;">게시글이 없습니다.</td>
+        				</tr>
+        			</c:if>
+        			<c:forEach items="${qnaList}" var="qnaVO">
+        				<tr>
+        				  <td>${ qnaVO.qseq}</td>
+        				  <td><a href="MacaronicsServlet?command=qna_view&qseq=${qnaVO.qseq}" >${ qnaVO.subject}</a></td>
+        				  <td><fmt:formatDate value="${ qnaVO.indate}"  type="date" /></td>
+        				  <td>
+        				  	 <c:choose>
+        				  	   <c:when test="${ qnaVO.rep==1}">
+        				  	   	no
+        				  	   </c:when>
+        				  	    <c:when test="${ qnaVO.rep==2}">
+        				  	    yes
+        				  	   </c:when>  		
+        				  	 </c:choose>
+        				  </td>
+        				</tr>
+        			</c:forEach>
+        		</table>
+        		</div>
             </div>
             
             <div class="text-center">
+                <input type="button" value="1:1 질문하기" class="btn btn-success" 
+                onclick="location.href='MacaronicsServlet?command=qna_write_form'">
             	<input type="button" value="쇼핑 계속하기" class="btn btn-primary"
             	 onclick="location.href='MacaronicsServlet?command=index'" >
             </div>
@@ -64,17 +76,13 @@
           </div>
         </div>
         
-        
-       
+       	 
 		<jsp:include page="../include/MyLeftMenu.jsp" />
-       
-       
+            
       </div>
     </div>
   </section>
   <!-- / product category -->
-
-
 
 <jsp:include page="../include/Footer.jsp" />
 

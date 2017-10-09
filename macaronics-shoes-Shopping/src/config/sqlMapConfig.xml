@@ -29,7 +29,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mapper/product.xml"/>	
 		<mapper resource="mapper/member.xml"/>	
 		<mapper resource="mapper/cart.xml"/>
-		<mapper resource="mapper/order.xml"/>										
+		<mapper resource="mapper/order.xml"/>	
+		<mapper resource="mapper/qna.xml"/>										
 	</mappers>
 	
 </configuration>
