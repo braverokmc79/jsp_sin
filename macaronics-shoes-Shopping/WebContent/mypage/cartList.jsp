@@ -93,7 +93,7 @@
 	                   </tr>
 	                 </tbody>
 	               </table>
-	               <a href="#" class="aa-cart-view-btn">주문하기</a>
+	               <a href="MacaronicsServlet?command=order_insert" class="aa-cart-view-btn">주문하기</a>
 	                <a href="MacaronicsServlet?command=index" class="aa-cart-view-btn">쇼핑 계속하기</a>
 	                <a href="#" onclick="go_cart_all_delete()" class="btn btn-danger">장바구니 비우기</a>
 	             </div>         

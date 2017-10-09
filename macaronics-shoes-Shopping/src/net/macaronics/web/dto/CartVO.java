@@ -14,7 +14,9 @@ and result='1';
 */
 
 public class CartVO {
-   
+    
+	private int odseq; //주문 상세 번호
+	private int oseq;  //주문번호
 	private int cseq;  //장바구니 번호
 	private String id;  //회원아이디
 	private int pseq;  //상품번호
@@ -24,6 +26,18 @@ public class CartVO {
 	private int price2; //가격
 	private String image;
 	private Timestamp indate;
+	public int getOdseq() {
+		return odseq;
+	}
+	public void setOdseq(int odseq) {
+		this.odseq = odseq;
+	}
+	public int getOseq() {
+		return oseq;
+	}
+	public void setOseq(int oseq) {
+		this.oseq = oseq;
+	}
 	public int getCseq() {
 		return cseq;
 	}
@@ -78,11 +92,15 @@ public class CartVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
+	
 	@Override
 	public String toString() {
-		return "CartVO [cseq=" + cseq + ", id=" + id + ", pseq=" + pseq + ", mname=" + mname + ", pname=" + pname
-				+ ", quantity=" + quantity + ", price2=" + price2 + ", image=" + image + ", indate=" + indate + "]";
+		return "CartVO [odseq=" + odseq + ", oseq=" + oseq + ", cseq=" + cseq + ", id=" + id + ", pseq=" + pseq
+				+ ", mname=" + mname + ", pname=" + pname + ", quantity=" + quantity + ", price2=" + price2 + ", image="
+				+ image + ", indate=" + indate + "]";
 	}
+	
+	
 
 	
 	

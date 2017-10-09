@@ -54,10 +54,10 @@
                         <!-- start single product item -->
                       </c:forEach>        
               </ul>
-
-
-          
+  
             </div>
+
+
             <div class="aa-product-catg-pagination">
               <nav>
                 <ul class="pagination">
@@ -81,6 +81,8 @@
             </div>
           </div>
         </div>
+        
+        
         <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
           <aside class="aa-sidebar">
             <!-- single sidebar -->
@@ -98,8 +100,7 @@
        
            
           </aside>
-        
-        
+                
         </div>
        
       </div>

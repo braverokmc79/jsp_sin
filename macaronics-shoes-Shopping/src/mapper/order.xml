@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+	<!-- id="태그의 식별자" resultType="sql 명령어의 리턴타입(레코드의 자료형)" 샵{변수} => 입력매개변수 -->
+
+	<insert id="insertOrder">
+	  insert into tbl_orders(oseq, id) values(orders_seq.nextval, #{id})
+	</insert>
+
+	<select id="selectMaxOseq" resultType="int">
+		select max(oseq) from tbl_orders
+	</select>
+	
+	<insert id="insertOrderDetail">
+		insert into tbl_order_detail ( odseq, oseq, pseq, quantity) 
+		 values( order_detail_seq.nextval, #{oseq}, #{pseq}, #{quantity})
+	</insert>
+
+	<select id="listOrderById" resultType="net.macaronics.web.dto.OrderVO">
+		select * from order_view where id=#{id} and result=#{result} and oseq=#{oseq}
+	</select>
+
+
+	<select id="selectSeqOrdering" resultType="int">
+		select distinct oseq from order_view where id=#{id} and result='1' order by oseq desc
+	</select>
+
+
+
+</mapper>
+
+
+	
+	
+	

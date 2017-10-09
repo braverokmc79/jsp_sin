@@ -12,6 +12,8 @@ import net.macaronics.web.controll.IndexAction;
 import net.macaronics.web.controll.JoinFormAction;
 import net.macaronics.web.controll.LogOutAction;
 import net.macaronics.web.controll.LoginFormAction;
+import net.macaronics.web.controll.OrderInsertAction;
+import net.macaronics.web.controll.OrderListAction;
 import net.macaronics.web.controll.ProductDetailAction;
 import net.macaronics.web.controll.ProductKindAction;
 import net.macaronics.web.controll.action.Action;
@@ -48,6 +50,9 @@ public class ActionFactory {
 		else if(command.equals("cart_delete")) action=new CartDeleteAction(); //장바구니 삭제
 		else if(command.equals("cart_ajax")) action=new CartInsertAjax(); //장바구니 ajax  담기
 		else if(command.equals("cart_delete_ajax")) action=new CartDeleteAjaxAction(); //장바구니 ajax  삭제
+		else if(command.equals("order_insert")) action=new OrderInsertAction(); //주문하기
+		else if(command.equals("order_list")) action=new OrderListAction(); //주문처리 후 바로 보여지는 주문 목록페이지
+		
 		
 		return action;
 	}
