@@ -28,25 +28,25 @@
       <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
           <div class="aa-product-catg-content">
-          
+          		<h3 class="text-center">My Page (${title })</h3>
             <div class="aa-product-catg-body">
               <div class="table-responsive">
               <table class="table table-striped">
               	 <tr class="danger">
+              	   <th>주문일자</th>
+              	   <th>주문번호</th>
               	   <th>상품명</th>
-              	   <th>수량</th>
-              	   <th>가격</th>
-              	   <th>주문일</th>
-              	   <th>진행상태</th>
+              	   <th>결제 금액</th>
+              	   <th>주문 상세</th>
               	 </tr>
               	 <tr>
               	   <c:forEach items="${orderList}" var="orderVO">
               	   	 <tr>
-              	   	  <td>${orderVO.pname}</td>
-              	   	  <td>${orderVO.quantity }</td>
-              	   	  <td><fmt:formatNumber type="currency"  value="${orderVO.price2*orderVO.quantity }"/></td>
               	   	  <td><fmt:formatDate value="${orderVO.indate }" type="date" /></td>
-              	   	  <td>처리 진행 중</td>
+              	   	  <td>${orderVO.oseq }</td>
+              	   	  <td>${orderVO.pname }</td>
+              	   	  <td><fmt:formatNumber value="${orderVO.price2 }" type="currency" /></td>
+              	   	  <td><a href="MacaronicsServlet?command=order_detail&oseq=${orderVO.oseq}" class="btn btn-warning">조회</a></td>
               	   	 </tr>
               	   </c:forEach>
               	 </tr>
@@ -88,6 +88,3 @@
 
 
 <jsp:include page="../include/Footer.jsp" />
-
-
-
