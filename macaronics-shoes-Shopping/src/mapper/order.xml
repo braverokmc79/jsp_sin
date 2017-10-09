@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="listOrderById" resultType="net.macaronics.web.dto.OrderVO">
-		select * from order_view where id=#{id} and result=#{result} and oseq=#{oseq}
+		select * from order_view where id=#{id} and result like '%'||#{result} ||'%' and oseq=#{oseq}
 	</select>
 
 

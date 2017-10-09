@@ -15,7 +15,7 @@ public class OrderVO {
       private String phone;
       private String pname;
       private int price2;
-      
+      private String result;
 	public int getOdseq() {
 		return odseq;
 	}
@@ -88,14 +88,21 @@ public class OrderVO {
 	public void setPrice2(int price2) {
 		this.price2 = price2;
 	}
-	
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
 	
 	@Override
 	public String toString() {
 		return "OrderVO [odseq=" + odseq + ", oseq=" + oseq + ", id=" + id + ", indate=" + indate + ", pseq=" + pseq
 				+ ", quantity=" + quantity + ", mname=" + mname + ", zip_num=" + zip_num + ", address=" + address
-				+ ", phone=" + phone + ", pname=" + pname + ", price2=" + price2 + "]";
+				+ ", phone=" + phone + ", pname=" + pname + ", price2=" + price2 + ", result=" + result + "]";
 	}
+      
+    
       
       
 }
