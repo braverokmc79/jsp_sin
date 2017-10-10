@@ -81,8 +81,8 @@ create table tbl_product (
 	price3 number DEFAULT 0,			-- 판매가-원가
 	content VARCHAR2(3000) null,		-- 상품 내용
 	image VARCHAR2(150) DEFAULT 'default.jpg',	
-	useyn char(1) DEFAULT 'y', 			-- 상품 사용유무 체크 y: 사용가능 n: 사용불가능
-	bestyn char(1) DEFAULT 'n',			-- 베스트상품인지 여부 체크 y:베스트 상품 n:베스트 상품 아님
+	useyn VARCHAR2(1) DEFAULT 'y', 			-- 상품 사용유무 체크 y: 사용가능 n: 사용 불가능
+	bestyn VARCHAR2(1) DEFAULT 'n',			-- 베스트상품인지 여부 체크 y:베스트 상품 n:베스트 상품 아님
 	indate date default sysdate			-- 등록일
 	
 

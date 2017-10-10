@@ -27,8 +27,8 @@ select rownum as num , t.* from   (select PSEQ, NAME, KIND, PRICE1, PRICE2, PRIC
 
 
 	<insert id="insertProudct">
-	insert into TBL_PRODUCT(pseq, name, kind, price1, price2, price3, content, image) values(
-product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{image})
+	insert into TBL_PRODUCT(pseq, name, kind, price1, price2, price3, content, image , useyn, bestyn) values(
+product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{image}, #{useyn}, #{bestyn} )
 	</insert>
 
 

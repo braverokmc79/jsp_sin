@@ -12,6 +12,8 @@
     <p>&nbsp;</p><p>&nbsp;</p>
   </div>
 </nav>
+
+
         </div>
         <!--/.fluid-container-->
         <script src="../Bootstrap-Admin/vendors/jquery-1.9.1.min.js"></script>

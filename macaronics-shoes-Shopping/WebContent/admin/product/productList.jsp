@@ -52,7 +52,7 @@
 	                                    <li>
 	                            검색된 상품 수 ${count } 개 
 	                            <input type="submit"  value="전체보기" class="primary" onclick="location.href='MacaronicsServlet?command=admin_product_list'">
-	                            <input type="submit"  value="상품 등록">
+	                            <input type="button"  value="상품 등록" onclick="location.href='MacaronicsServlet?command=admin_product_write_form'">
 	                                        <a href="#"></a>
 	                                    </li>
 	                                </ul>
@@ -85,10 +85,20 @@
 	                   	   <tr>
 	                   	     <td>${productVO.pseq }</td>
 	                   	     <td>${productVO.name }</td>
-	                   	     <td>${productVO.price1 }</td>
-	                   	     <td>${productVO.price2 }</td>
+	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price1 }" /></td>
+	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price2 }" /></td>
 	                   	     <td><fmt:formatDate type="date"  value="${productVO.indate }" /></td>
-	                   	     <td>${productVO.useyn }</td>
+	                   	     <td>
+        	   	 		<c:choose>
+                   	   	 	<c:when test="${productVO.useyn =='y' }">
+                   	   	 		사용중
+                   	   	 	</c:when>
+                   	   	 	<c:otherwise>
+                   	   	 		사용 불가능
+                   	   	 	</c:otherwise>
+                   	   	 </c:choose>	                   	     
+	                   	     
+	                   	 </td>
 	                   	   </tr>
                    	   </c:forEach>
                    	   

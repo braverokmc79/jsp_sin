@@ -86,7 +86,6 @@ public class ProductVO {
 				+ price2 + ", price3=" + price3 + ", content=" + content + ", image=" + image + ", useyn=" + useyn
 				+ ", bestyn=" + bestyn + ", indate=" + indate + "]";
 	}
-  
 	
 	
 }

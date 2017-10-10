@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.admin.controller.AdminIndexAction;
 import net.macaronics.web.admin.controller.AdminProductListAction;
+import net.macaronics.web.admin.controller.AdminProductWriteAction;
+import net.macaronics.web.admin.controller.AdminProductWriteFormAction;
 import net.macaronics.web.controll.CartDeleteAction;
 import net.macaronics.web.controll.CartDeleteAjaxAction;
 import net.macaronics.web.controll.CartInsertAction;
@@ -70,6 +72,8 @@ public class ActionFactory {
 		else if(command.equals("qna_view")) action=new QnaViewAction(); //질문 게시글 상세 보기
 		else if(command.equals("admin_login_form")) action=new AdminIndexAction(); //관리자 로그인 폼
 		else if(command.equals("admin_product_list")) action=new AdminProductListAction(); //관리자 상품 목록
+		else if(command.equals("admin_product_write_form")) action=new AdminProductWriteFormAction(); //관리자 상품 등록 폼
+		else if(command.equals("admin_product_write")) action=new AdminProductWriteAction(); //관리자 상품 등록하기
 		
 		
 		return action;
