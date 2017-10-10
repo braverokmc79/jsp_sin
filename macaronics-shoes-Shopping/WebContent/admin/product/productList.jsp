@@ -59,8 +59,6 @@
                             	</div>
                         	</div>
                         	
-                        	
-                        	
                     	</div>
                    
                    
@@ -84,7 +82,7 @@
                    	  <c:forEach items="${productList}" var="productVO"> 
 	                   	   <tr>
 	                   	     <td>${productVO.pseq }</td>
-	                   	     <td>${productVO.name }</td>
+	                   	     <td><a href="MacaronicsServlet?command=admin_product_detail&pseq=${productVO.pseq }">${productVO.name }</a></td>
 	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price1 }" /></td>
 	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price2 }" /></td>
 	                   	     <td><fmt:formatDate type="date"  value="${productVO.indate }" /></td>

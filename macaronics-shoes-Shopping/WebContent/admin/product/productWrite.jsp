@@ -51,8 +51,8 @@
            				</tr>	
            				
            				<tr>
-           				 <th>원가</th><td><input type="number" name="price1"  id="price1" min="1000"></td>
-           				 <th>판매가</th><td><input type="text" name="price2" id="price2" onblur="go_ab()" min="1000"></td>
+           				 <th>원가</th><td><input type="text" name="price1"  id="price1" ></td>
+           				 <th>판매가</th><td><input type="text" name="price2" id="price2" onblur="go_ab()"></td>
            				 <th>마진</th><td width="10%"><input type="text" name="price3" id="price3" readonly="readonly"></td>
            				</tr>	
            			   
@@ -128,9 +128,9 @@ $(function() {
 
 function go_ab(){
 	
-	var price1=$("#price1").val();
-	var price2=$("#price2").val();
-	if($.trim(price2) <= $.trim(price1)){
+	var price1=parseInt($("#price1").val());
+	var price2=parseInt($("#price2").val());
+	if(price2 <= price1){
 		alert("판매가는 원가 보다 작을 수 없습니다.");
 		$("#price1").val("");
 		$("#price2").val("");
@@ -140,6 +140,25 @@ function go_ab(){
 	}
 	$("#price3").val(price2-price1);
 	
+}
+
+
+function go_ab3(){
+	
+	var price1=parseInt($("#price1").val());
+	var price2=parseInt($("#price2").val());
+	if(price2 <= price1){
+		alert("판매가는 원가 보다 작을 수 없습니다.");
+		$("#price1").val("");
+		$("#price2").val("");
+		$("#price1").focus();
+		
+		return false;
+	}else{
+		$("#price3").val(price2-price1);	
+	}
+	
+	return true;
 }
 function productSubmit(){
 	var name=$("#name").val();
@@ -167,6 +186,11 @@ function productSubmit(){
 		return;
 	}
 	
+	if(!go_ab3()){
+		$("#price3").val("");
+		return;
+	}
+	
 	if( $("#image").val() != "" ){
 
 		var ext = $('#image').val().split('.').pop().toLowerCase();
@@ -177,7 +201,8 @@ function productSubmit(){
 		 return;
 	   }
 	    
-		document.form1.submit();    
+	 document.form1.submit(); 
+		
 	}else{
 		 alert('이미지를 선택해 주세요');
 		 return;
@@ -190,7 +215,7 @@ function productSubmit(){
 
 
 
-</script>      
+</script> 
 
  
  </body>
