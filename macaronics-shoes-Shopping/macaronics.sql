@@ -382,3 +382,12 @@ product_seq.nextval,  '스니커여성구두', '5', '15000', '20000', '5000', '�
 
 commit;
 
+
+
+
+--관리자
+insert into TBL_ADMIN (ID, PWD, NAME, PHONE) VALUES ('admin', '1111', '관리자', '010-1111-2222');
+commit;	
+
+
+

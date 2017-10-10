@@ -40,10 +40,18 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
+                <c:choose>
+                  <c:when test="${empty sessionScope.wokerid }">
+                    <li class="hidden-xs"><a href="MacaronicsServlet?command=admin_login_form">관리자 로그인</a></li>
+                  </c:when>
+                  <c:otherwise>
+                    <li class="hidden-xs"><a href="MacaronicsServlet?command=admin_product_list">관리자 화면</a></li>
+                  </c:otherwise>
+                </c:choose>
                 
                 <c:choose>
                   <c:when test="${empty sessionScope.loginUser}">
-                      <li class="hidden-xs"><a href="MacaronicsServlet?command=amdin_login_form">관리자 로그인</a></li>
+                     
 	                  <li class="hidden-xs"><a href="MacaronicsServlet?command=join_form">회원가입</a></li>
 	                  <li><a href="MacaronicsServlet?command=login_form">로그인</a></li>
                   </c:when>

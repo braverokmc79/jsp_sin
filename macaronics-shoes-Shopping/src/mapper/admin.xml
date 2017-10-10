@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	<!-- id="태그의 식별자" resultType="sql 명령어의 리턴타입(레코드의 자료형)" 샵{변수} => 입력매개변수 -->
+
+	<select id="workerCheck" resultType="int">
+		select count(*) from TBL_ADMIN where id =#{id} and pwd=#{pwd}
+	</select>
+
+
+</mapper>
+
+
+	
+	
+	
