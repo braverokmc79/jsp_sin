@@ -34,7 +34,7 @@ product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{conten
 
 	<update id="updateProduct">
 		
- update TBL_PRODUCT SET kind=#{kind}, USEYN =#{USEYN}, name=#{name},
+ update TBL_PRODUCT SET kind=#{kind}, useyn =#{useyn}, name=#{name},
    price1=#{price1} , price2=#{price2}, price3=#{price3}, content=#{content}, image=#{image} ,
    bestyn=#{bestyn}  where pseq=#{pseq}
 	

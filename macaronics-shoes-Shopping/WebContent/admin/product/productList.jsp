@@ -82,7 +82,7 @@
                    	  <c:forEach items="${productList}" var="productVO"> 
 	                   	   <tr>
 	                   	     <td>${productVO.pseq }</td>
-	                   	     <td><a href="MacaronicsServlet?command=admin_product_detail&pseq=${productVO.pseq }&pageNum=${param.pageNum}">${productVO.name }</a></td>
+<td><a href="MacaronicsServlet?command=admin_product_detail&pseq=${productVO.pseq }&pageNum=${param.pageNum ==null ? 1: param.pageNum}">${productVO.name }</a></td>
 	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price1 }" /></td>
 	                   	     <td><fmt:formatNumber type="currency" value="${productVO.price2 }" /></td>
 	                   	     <td><fmt:formatDate type="date"  value="${productVO.indate }" /></td>

@@ -22,7 +22,9 @@ public class AdminProductListAction implements Action {
 		String url="admin/product/productList.jsp";
 		//1.페이징 객체 생성 페이지의 넘버값을 읽어드림
 		String pageNum="1";
-		pageNum=request.getParameter("pageNum");
+		if(request.getParameter("pageNum")!=null){
+			pageNum=request.getParameter("pageNum");
+		}
 		Paging paging =new Paging(pageNum);
 		AdminProductDAO productDAO =AdminProductDAO.getInstance();
 		//2.페이징 객체에 전체페이지를 넘겨줌,  Paging 클래스에서 페이지 계산 처리 됨
@@ -37,7 +39,6 @@ public class AdminProductListAction implements Action {
 		
 		logger.info("AdminProductListAction  - {},  {},  {} " , count, paging.getStartRow(), paging.getEndRow());
 		List<ProductVO> productList=productDAO.listProduct(paging,key );
-		
 		
 		
 		

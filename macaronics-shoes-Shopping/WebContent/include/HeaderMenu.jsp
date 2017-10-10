@@ -131,8 +131,10 @@
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="검색">
+                <form action="MacaronicsServlet?command=category&kind=3">
+                 <input type="hidden" name="command" id="" value="category">
+                  <input type="hidden" name="kind" id="" value="3">
+                  <input type="text" name="search" id="" placeholder="검색">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>

@@ -25,7 +25,7 @@ public class Paging {
    
 	public Paging(String pageNum) {
 	 //만약 처음 boardList.jsp를 클릭하거나 수정 삭제 등 다른 게시글에서 이 페이지로 넘어오면 pageNum값이 없기에 null 처리를 해줌
-	  if(pageNum==null){
+	  if(pageNum==null || pageNum==""){
 			 pageNum="1";
 	  }
 	  this.pageNum=pageNum;

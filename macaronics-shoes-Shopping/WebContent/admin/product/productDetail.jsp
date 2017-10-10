@@ -159,8 +159,7 @@ function go_update(){
 
 
 function go_list(){
-	$("#command").val("admin_product_list");
-	document.form1.submit();
+	location.href="MacaronicsServlet?command=admin_product_list&pageNum=${pageN}";
 }
  
 function go_delete(){

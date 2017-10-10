@@ -7,6 +7,8 @@ import net.macaronics.web.admin.controller.AdminIndexAction;
 import net.macaronics.web.admin.controller.AdminProductDeleteAction;
 import net.macaronics.web.admin.controller.AdminProductDetailAction;
 import net.macaronics.web.admin.controller.AdminProductListAction;
+import net.macaronics.web.admin.controller.AdminProductUpdateAction;
+import net.macaronics.web.admin.controller.AdminProductUpdateFormAction;
 import net.macaronics.web.admin.controller.AdminProductWriteAction;
 import net.macaronics.web.admin.controller.AdminProductWriteFormAction;
 import net.macaronics.web.controll.CartDeleteAction;
@@ -78,8 +80,8 @@ public class ActionFactory {
 		else if(command.equals("admin_product_write")) action=new AdminProductWriteAction(); //관리자 상품 등록하기
 		else if(command.equals("admin_product_detail")) action=new AdminProductDetailAction(); //관리자 상품 상세보기
 		else if(command.equals("admin_product_delete")) action=new AdminProductDeleteAction(); //관리자 상품 삭제하기
-		
-		
+		else if(command.equals("admin_product_update_form")) action=new AdminProductUpdateFormAction(); //관리자 상품 수정하기 폼 가기
+		else if(command.equals("admin_product_update")) action=new AdminProductUpdateAction(); //관리자 상품 수정하기 
 		
 		return action;
 	}

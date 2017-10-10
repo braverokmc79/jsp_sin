@@ -23,7 +23,7 @@ public class AdminProductDetailAction implements Action{
 		ProductDAO productDAO =ProductDAO.getInstance();
 		ProductVO productVO =productDAO.getProduct(pseq);
 		String str =productVO.getContent();
-		String content=str.replaceAll("&lt", "<").replaceAll("&gt", ">");
+		String content=str.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 		productVO.setContent(content);
 		
 		//현재 페이지 위치 저장을 위해
