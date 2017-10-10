@@ -21,7 +21,9 @@ public class AdminProductListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url="admin/product/productList.jsp";
 		//1.페이징 객체 생성 페이지의 넘버값을 읽어드림
-		Paging paging =new Paging(request.getParameter("pageNum"));
+		String pageNum="1";
+		pageNum=request.getParameter("pageNum");
+		Paging paging =new Paging(pageNum);
 		AdminProductDAO productDAO =AdminProductDAO.getInstance();
 		//2.페이징 객체에 전체페이지를 넘겨줌,  Paging 클래스에서 페이지 계산 처리 됨
 		String key=request.getParameter("key");

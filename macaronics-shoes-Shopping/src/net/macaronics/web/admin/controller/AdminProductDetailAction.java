@@ -32,7 +32,9 @@ public class AdminProductDetailAction implements Action{
 			pageN=request.getParameter("pageNum");
 		}
 		
-		String kindList[] ={"남성운동화", "여성운동화","남성구두", "여성구두", "On Sale"};
+		
+		
+		String kindList[] ={"0","남성운동화", "여성운동화","남성구두", "여성구두", "On Sale"};
 		
 		request.setAttribute("productVO", productVO);
 		request.setAttribute("pageN", pageN);

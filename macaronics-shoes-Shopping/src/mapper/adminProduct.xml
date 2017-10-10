@@ -41,7 +41,7 @@ product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{conten
 	</update>
 
 
-	<delete id="">
+	<delete id="deleteProudct">
 	  delete from TBL_PRODUCT where pseq=#{pseq}
 	</delete>
 

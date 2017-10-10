@@ -32,7 +32,7 @@
                     	</div>
                    
                    <div>
-                   <form action="MacaronicsServlet?command=admin_product_write" method="post" enctype="multipart/form-data"  name="form1">	 
+                   <form action="MacaronicsServlet" method="post"  name="form1">	 
                    	 <div class="table-responsive">
                    	 <table class="table">
            				<tr>
@@ -94,12 +94,16 @@
            				</tr>	
            							
            			 </table>
-           			 
+           			  
+           			  <input  type="hidden" name="command" id="command" >
+           			  <input  type="hidden" name="pageNum" value="${pageN}">
+           			  <input  type="hidden" name="pseq" value="${productVO.pseq}">
+           			  
                    	 </div>
                    	<div class="text-center">
-<input type="button" value="수정하기"  class="btn btn-success" onclick="location.href='MacaronicsServlet?command=admin_product_update_form&pageNum=${pageN}'">
-<input type="button" value="목록보기"  class="btn btn-primary" onclick="location.href='MacaronicsServlet?command=admin_product_list&pageNum=${pageN}'">
-<input type="button" value="삭제하기"  class="btn btn-danger" onclick="location.href='MacaronicsServlet?command=admin_product_delete&pageNum=${pageN}'">
+<input type="button" value="수정하기"  class="btn btn-success" onclick="go_update();">
+<input type="button" value="목록보기"  class="btn btn-primary" onclick="go_list();">
+<input type="button" value="삭제하기"  class="btn btn-danger" onclick="go_delete();">
     			 	
            			 	</div>
             	</form>
@@ -131,7 +135,43 @@
 </nav>
 
 
+
+        <!--/.fluid-container-->
+        <script src="../../Bootstrap-Admin/vendors/jquery-1.9.1.min.js"></script>
+        <script src="../../Bootstrap-Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../Bootstrap-Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="../../Bootstrap-Admin/assets/scripts.js"></script>
+        <script>
+        $(function() {
+            // Easy pie charts
+            $('.chart').easyPieChart({animate: 1000});
+        });
+        </script>
+
+
+
+<script>
+function go_update(){
+	
+	$("#command").val("admin_product_update_form");
+	document.form1.submit();
+}
+
+
+function go_list(){
+	$("#command").val("admin_product_list");
+	document.form1.submit();
+}
  
+function go_delete(){
+	if(confirm("정말 삭제 하시겠습니까?")){
+		$("#command").val("admin_product_delete");
+		document.form1.submit();		
+	}
+
+}
+
+</script>
 
  
  </body>
