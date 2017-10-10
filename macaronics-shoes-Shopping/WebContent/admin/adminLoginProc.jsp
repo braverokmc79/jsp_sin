@@ -14,7 +14,7 @@
 			 //로그인 성공
 			 session.setAttribute("wokerid", request.getAttribute("username"));
 			// url="MacaronicsServlet?command=admin_product_list";
-			 url="adminProduct/admin_product_list.jsp";
+			 url="MacaronicsServlet?command=admin_product_list";
 	}
 	response.sendRedirect(url);
 

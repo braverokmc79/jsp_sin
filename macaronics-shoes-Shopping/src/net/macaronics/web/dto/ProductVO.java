@@ -1,6 +1,6 @@
 package net.macaronics.web.dto;
 
-import com.sun.jmx.snmp.Timestamp;
+import java.sql.Timestamp;
 
 public class ProductVO {
 	private int pseq; //product_seq 시퀀스 객체로 자동 일련번호 부여

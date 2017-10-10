@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminProduct">
+	<!-- id="태그의 식별자" resultType="sql 명령어의 리턴타입(레코드의 자료형)" 샵{변수} => 입력매개변수 -->
+
+	<select id="workerCheck" resultType="int">
+		select count(*) from TBL_ADMIN where id =#{id} and pwd=#{pwd}
+	</select>
+	
+	<select id="totalRecord" resultType="int">
+	<![CDATA[ select count(*)  from TBL_PRODUCT where name like '%'|| #{proudct_name} ||'%' ]]>
+	</select>
+
+
+   <select id="listProduct" resultType="net.macaronics.web.dto.ProductVO">
+     <![CDATA[ select * from 
+     (
+select rownum as num , t.* from   (select PSEQ, NAME, KIND, PRICE1, PRICE2, PRICE3,  IMAGE, USEYN, BESTYN, INDATE
+
+  from TBL_PRODUCT where name like '%'|| #{proudct_name} ||'%' order by indate desc ) t )
+  
+  where num >= #{start} and num <= #{end} ]]>
+   	
+   </select>
+
+
+	<insert id="insertProudct">
+	insert into TBL_PRODUCT(pseq, name, kind, price1, price2, price3, content, image) values(
+product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{image})
+	</insert>
+
+
+	<update id="updateProduct">
+		
+ update TBL_PRODUCT SET kind=#{kind}, USEYN =#{USEYN}, name=#{name},
+   price1=#{price1} , price2=#{price2}, price3=#{price3}, content=#{content}, image=#{image} ,
+   bestyn=#{bestyn}  where pseq=#{pseq}
+	
+	</update>
+
+
+	<delete id="">
+	  delete from TBL_PRODUCT where pseq=#{pseq}
+	</delete>
+
+
+
+
+</mapper>
+
+
+	
+	
+	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld" prefix="csrf" %>    
         <title>관리자 페이지</title>
         <!-- Bootstrap -->
@@ -12,3 +13,9 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <script src="../Bootstrap-Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+<c:if test="${empty sessionScope.wokerid  or sessionScope.wokerid ==''}">
+  <c:redirect url="MacaronicsServlet?command=index" />
+</c:if> 
+
+ 
