@@ -34,6 +34,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 
+
+	<!--  관리자 화면 회원 목록 출력 --> 	
+	<select id="listMember" resultType="net.macaronics.web.dto.MemberVO"> 
+	<![CDATA[
+		select * from TBL_MEMBER where name like '%'|| #{name} || '%' order by indate desc
+	]]>
+	</select>
+	
+	
+
 </mapper>
 
 

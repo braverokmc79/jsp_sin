@@ -1,6 +1,8 @@
 package net.macaronics.web.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -93,7 +95,26 @@ public class MemberDAO {
 	}
 	
 	
+	//관리자 회원 목록 출력
+	public List<MemberVO> listMember(String member_name){
+		List<MemberVO> memberList=new ArrayList<>();
+		try{
+			sqlSession =MybatisService.getFactory().openSession();			
+			memberList=sqlSession.selectList("member.listMember", member_name);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			MybatisService.sessionClose(sqlSession);
+		}
+		return memberList;
+	}
+	
+	
+	
 }
+
+
 
 
 
