@@ -114,6 +114,37 @@ public class OrderDAO {
 	
 	
 	
+	
+	//관리자 화면 - 주문관리 주문 목록 불러오기
+	public List<OrderVO> listOrder(String member_name){
+		List<OrderVO> orderList=new ArrayList<>();
+		try{
+			sqlSession=MybatisService.getFactory().openSession();
+			orderList=sqlSession.selectList("order.listOrder", member_name);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			MybatisService.sessionClose(sqlSession);
+		}
+		return orderList;
+	}
+
+	
+	//관리자 화면 - 주문처리 업데이트
+	public void updateOrderResult(String odseq) {
+		try{
+			sqlSession=MybatisService.getFactory().openSession();
+			sqlSession.update("order.updateOrderResult", odseq);			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			sqlSession.commit();
+			MybatisService.sessionClose(sqlSession);
+		}
+	}
+	
+	
 }
 
 

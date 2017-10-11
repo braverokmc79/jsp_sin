@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertOrderDetail">
-		insert into tbl_order_detail ( odseq, oseq, pseq, quantity) 
+		insert into TBL_ORDER_DETAIL ( odseq, oseq, pseq, quantity) 
 		 values( order_detail_seq.nextval, #{oseq}, #{pseq}, #{quantity})
 	</insert>
 
@@ -27,6 +27,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select distinct oseq from order_view where id=#{id} and result='1' order by oseq desc
 	</select>
 
+
+
+	<!-- 관리자 화면 주문  처리하기 위한 주문 목록 불러오기-->
+	<select id="listOrder" resultType="net.macaronics.web.dto.OrderVO">
+	 select * from ORDER_VIEW where mname  like '%'|| #{mname} ||'%' order by result, oseq desc 
+	</select>
+
+
+	<update id="updateOrderResult">
+		update TBL_ORDER_DETAIL set result='2' where odseq=#{odseq}
+	</update>
 
 
 </mapper>

@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.macaronics.web.admin.controller.AdminIndexAction;
+import net.macaronics.web.admin.controller.AdminOrderListAction;
+import net.macaronics.web.admin.controller.AdminOrderSaveAction;
 import net.macaronics.web.admin.controller.AdminProductDeleteAction;
 import net.macaronics.web.admin.controller.AdminProductDetailAction;
 import net.macaronics.web.admin.controller.AdminProductListAction;
@@ -82,6 +84,9 @@ public class ActionFactory {
 		else if(command.equals("admin_product_delete")) action=new AdminProductDeleteAction(); //관리자 상품 삭제하기
 		else if(command.equals("admin_product_update_form")) action=new AdminProductUpdateFormAction(); //관리자 상품 수정하기 폼 가기
 		else if(command.equals("admin_product_update")) action=new AdminProductUpdateAction(); //관리자 상품 수정하기 
+		else if(command.equals("admin_order_list")) action=new AdminOrderListAction(); //주문관리  폼 가기
+		else if(command.equals("admin_order_save")) action=new AdminOrderSaveAction(); //주문관리  업데이트 처리
+		
 		
 		return action;
 	}
