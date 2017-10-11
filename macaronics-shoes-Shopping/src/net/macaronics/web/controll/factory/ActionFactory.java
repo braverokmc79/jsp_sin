@@ -14,6 +14,9 @@ import net.macaronics.web.admin.controller.AdminProductUpdateAction;
 import net.macaronics.web.admin.controller.AdminProductUpdateFormAction;
 import net.macaronics.web.admin.controller.AdminProductWriteAction;
 import net.macaronics.web.admin.controller.AdminProductWriteFormAction;
+import net.macaronics.web.admin.controller.AdminQnaDetailAction;
+import net.macaronics.web.admin.controller.AdminQnaListAction;
+import net.macaronics.web.admin.controller.AdminQnaResaveAction;
 import net.macaronics.web.controll.CartDeleteAction;
 import net.macaronics.web.controll.CartDeleteAjaxAction;
 import net.macaronics.web.controll.CartInsertAction;
@@ -88,6 +91,10 @@ public class ActionFactory {
 		else if(command.equals("admin_order_list")) action=new AdminOrderListAction(); //주문관리  폼 가기
 		else if(command.equals("admin_order_save")) action=new AdminOrderSaveAction(); //주문관리  업데이트 처리
 		else if(command.equals("admin_member_list")) action=new AdminMemberListAction(); //주문관리  회원리스트
+		else if(command.equals("admin_qna_list")) action=new AdminQnaListAction(); //QNA 답변 리스트
+		else if(command.equals("admin_qna_detail")) action=new AdminQnaDetailAction(); //QNA 답변 상세보기 및 답변 폼
+		else if(command.equals("admin_qna_repsave")) action=new AdminQnaResaveAction(); //QNA 답변하기
+		
 		
 		
 		return action;

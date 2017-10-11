@@ -18,6 +18,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			VALUES (qna_seq.nextval, #{subject}, #{content}, #{id})
 	</insert>
 	
+	
+	<!-- 관리자 화면 qna  전체 출력 -->
+	<select id="listAllQna" resultType="net.macaronics.web.dto.QnaVO">
+	   select * from TBL_QNA order by indate desc
+	</select>
+	
+	<!-- 관리자  qna 답변 업데이트-->
+	<update id="updateQna">
+	  update TBL_QNA  set reply=#{reply}, rep='2'  where qseq=#{qseq}
+	</update>
 
 </mapper>
 

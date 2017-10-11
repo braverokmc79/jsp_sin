@@ -34,7 +34,7 @@
 	                                    <li>
 	                       <form action="MacaronicsServlet" >
 	                                     
-	                                     주문자 이름 <input type="text" name="key" value="${key =='%' ? '':key }"> 
+	                                    회원 이름 <input type="text" name="key" value="${key =='%' ? '':key }"> 
 	                   		  <input type="hidden"  value="admin_order_list" name="command" >    
 	                           <input type="submit" class="success" value="검색">               
 	                      </form>              
